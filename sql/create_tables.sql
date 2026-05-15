@@ -36,8 +36,9 @@ CREATE TABLE Features (
 CREATE TABLE Sales (
     Store INT,
     Dept INT,
-    Date DATE,
-    Weekly_Sales DECIMAL(12,2),
-    Is_Holiday BIT
+    Date VARCHAR(50),
+    Weekly_Sales VARCHAR(50),
+    IsHoliday VARCHAR(50)
 );
+
 
