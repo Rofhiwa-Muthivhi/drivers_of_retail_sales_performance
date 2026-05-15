@@ -20,14 +20,14 @@ CREATE TABLE Features (
     Date DATE,
     Temperature DECIMAL(5,2),
     Fuel_Price DECIMAL(5,2),
-    MarkDown1 DECIMAL(10,2),
-    MarkDown2 DECIMAL(10,2),
-    MarkDown3 DECIMAL(10,2),
-    MarkDown4 DECIMAL(10,2),
-    MarkDown5 DECIMAL(10,2),
+    MarkDown1 VARCHAR(20),
+    MarkDown2 VARCHAR(20),
+    MarkDown3 VARCHAR(20),
+    MarkDown4 VARCHAR(20),
+    MarkDown5 VARCHAR(20),
     CPI DECIMAL(10,2),
     Unemployment DECIMAL(5,2),
-    IsHoliday BIT
+    IsHoliday VARCHAR(10)
 );
 
 -- ==================================================
@@ -40,3 +40,4 @@ CREATE TABLE Sales (
     Weekly_Sales DECIMAL(12,2),
     Is_Holiday BIT
 );
+
