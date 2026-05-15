@@ -1,0 +1,1 @@
+A relational database named Retail_Analysis was created in SQL Server Management Studio (SSMS). The default dbo schema was used to store retail tables for simplicity and efficient project development.
