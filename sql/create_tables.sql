@@ -16,17 +16,17 @@ Size INT
 -- Features
 -- ==================================================
 CREATE TABLE Features (
-    Store INT,
-    Date DATE,
-    Temperature DECIMAL(10,2),
-    Fuel_Price DECIMAL(10,2),
-    MarkDown1 VARCHAR(20),
-    MarkDown2 VARCHAR(20),
-    MarkDown3 VARCHAR(20),
-    MarkDown4 VARCHAR(20),
-    MarkDown5 VARCHAR(20),
-    CPI DECIMAL(15,2),
-    Unemployment DECIMAL(10,3),
+    Store VARCHAR(50),
+    Date VARCHAR(50),
+    Temperature VARCHAR(50),
+    Fuel_Price VARCHAR(50),
+    MarkDown1 VARCHAR(50),
+    MarkDown2 VARCHAR(50),
+    MarkDown3 VARCHAR(50),
+    MarkDown4 VARCHAR(50),
+    MarkDown5 VARCHAR(50),
+    CPI VARCHAR(50),
+    Unemployment VARCHAR(50),
     IsHoliday VARCHAR(10)
 );
 
