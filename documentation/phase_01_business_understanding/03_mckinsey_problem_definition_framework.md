@@ -1,8 +1,7 @@
 # Problem Definition (McKinsey 5 W's)
 
-Before conducting analysis, the business problem was structured using the **McKinsey 5 W's framework** to clearly define the challenge, business importance, stakeholders, timing, and scope of the problem.
+Before conducting analysis, the business problem was structured using the **McKinsey 5 W's framework** to clearly define the business challenge, why it matters, who is affected, when it becomes important, and where the problem occurs.
 
----
 
 ## 1. What?
 
@@ -12,7 +11,6 @@ The business wants to understand the key factors that influence retail sales per
 
 Management is uncertain about what drives changes in sales performance and wants to determine whether factors such as promotions, holidays, store characteristics, and economic conditions influence results.
 
----
 
 ## 2. Why?
 
@@ -24,11 +22,10 @@ This matters because retail managers need to make better business decisions rega
 - Promotion effectiveness  
 - Store performance  
 - Resource allocation  
-- Business profitability  
+- Sales performance improvement  
 
-Poor understanding of sales drivers may lead to inefficient promotions, poor inventory allocation, and inconsistent performance across stores.
+Poor understanding of sales drivers may lead to ineffective promotions, poor inventory allocation, and inconsistent sales performance across stores.
 
----
 
 ## 3. Who?
 
@@ -41,9 +38,8 @@ The main stakeholders include:
 - Inventory and operations teams  
 - Business leadership and decision-makers  
 
-These stakeholders may use insights from the analysis to improve sales performance and operational efficiency.
+These stakeholders may use insights from the analysis to improve sales performance, planning, and operational efficiency.
 
----
 
 ## 4. When?
 
@@ -56,9 +52,8 @@ This problem becomes especially important during:
 - Weekly sales cycles  
 - Changing economic conditions  
 
-Understanding sales drivers during these periods may help management prepare for demand changes and improve planning.
+Understanding sales drivers during these periods may help management prepare for changes in demand and improve planning.
 
----
 
 ## 5. Where?
 
@@ -70,10 +65,9 @@ The problem occurs across:
 - Multiple departments  
 - Different store types (`A`, `B`, `C`)  
 
-Performance differences may exist across stores and departments, making it important to understand variation in retail performance.
+Performance differences may exist across stores and departments, making it important to understand variation in retail sales performance.
 
----
 
 # Problem Statement
 
-The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall business performance.
+The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
