@@ -8,9 +8,6 @@ Using historical retail sales data, the analysis aims to understand how **store 
 
 The goal is to transform structured numerical retail data into meaningful business insights that support better decision-making.
 
-**Current Stage:**  
-✅ **Business Understanding & Project Framing**
-
 ---
 
 ## 🎯 Business Problem
