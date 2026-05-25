@@ -1,13 +1,13 @@
 # Dataset Understanding
 
-The project consists of three datasets that together help explain retail sales performance across stores and departments.
-
----
+The three datasets work together to help explain retail sales performance across stores and departments..
 
 ## 1. Sales Dataset
 
-### Purpose
-The sales dataset represents the main business performance data and records weekly retail sales across stores and departments.
+### Explains:
+**What happened** in terms of weekly sales performance.
+
+This dataset helps us understand how sales performed across different stores and departments over time.
 
 ### Key Columns
 - Store
@@ -16,10 +16,7 @@ The sales dataset represents the main business performance data and records week
 - Weekly Sales
 - Holiday Indicator (`IsHoliday`)
 
-### Understanding
-This dataset explains **what happened** in terms of sales performance.
-
-Sales are recorded weekly across multiple stores and departments, making it possible to analyze trends, compare store performance, and investigate seasonal changes.
+Sales are recorded weekly across multiple stores and departments, making it possible to analyze sales trends, compare store and department performance, and investigate seasonal changes in sales.
 
 ### Business Questions It Can Answer
 - Which stores generate the highest sales?
@@ -37,20 +34,19 @@ Sales are recorded weekly across multiple stores and departments, making it poss
 - Department descriptions are not available.
 - Product categories are not explicitly provided.
 
----
 
 ## 2. Features Dataset
 
-### Purpose
-The features dataset contains factors that may influence retail sales performance.
+### Explains:
+**What may have influenced sales performance**
 
 Think of this dataset as:
 
-> **Potential sales drivers**
+> **Potential drivers of sales performance**
 
 Without this table, we only know **what happened**.
 
-With this table, we can investigate **why performance may have happened**.
+With this table, we can investigate **why sales performance may have happened**.
 
 ### Key Columns
 - Temperature
@@ -61,7 +57,7 @@ With this table, we can investigate **why performance may have happened**.
 - Holiday Indicator (`IsHoliday`)
 
 ### Understanding
-This dataset includes both **internal** and **external** factors that may affect retail performance.
+This dataset includes both **internal** and **external** factors that may influence retail sales performance.
 
 #### Internal Factors
 - Promotional markdowns
@@ -76,14 +72,14 @@ This dataset includes both **internal** and **external** factors that may affect
 ### Business Questions It Can Answer
 - Do promotions improve sales?
 - Do holidays increase sales?
-- Does inflation affect customer spending?
-- Does unemployment impact retail performance?
+- Does inflation influence weekly sales performance?
+- Does unemployment influence weekly sales performance?
 - Do fuel prices influence sales activity?
 
 ### Key Business Understanding
 Fuel prices may influence customer spending behavior.
 
-When fuel prices increase, customers may spend more money on transport and reduce non-essential spending, which could affect retail sales.
+When fuel prices increase, customers may spend more money on transport and reduce non-essential spending, which may affect retail sales performance.
 
 However, this project will **test whether a relationship exists**, rather than assuming fuel prices directly reduce sales.
 
@@ -94,14 +90,13 @@ However, this project will **test whether a relationship exists**, rather than a
 
 ### Limitations
 - Exact regional mapping of economic indicators is unclear.
-- Economic indicators are attached to store/date observations without detailed geographic explanation.
+- Economic indicators are attached to store/date observations without a detailed geographic explanation.
 
----
 
 ## 3. Stores Dataset
 
-### Purpose
-The stores dataset contains store-level characteristics.
+### Explains:
+**What type of store generated the results**
 
 ### Key Columns
 - Store
@@ -113,7 +108,7 @@ This dataset helps explain **what type of store generated the results**.
 
 Store type (`A`, `B`, `C`) likely represents different store classifications. However, the dataset does not define what these categories mean.
 
-Store size appears to represent physical store size and may influence sales potential.
+Store size appears to represent physical store size and may influence sales potential, as larger stores may have greater inventory capacity and customer traffic.
 
 ### Business Questions It Can Answer
 - Do larger stores perform better?
@@ -125,32 +120,31 @@ Store size appears to represent physical store size and may influence sales pote
 - Larger stores may have greater sales potential.
 
 ### Potential Hypothesis
-> Larger stores generate higher weekly sales.
+> Larger stores may generate higher weekly sales.
 
 ### Limitations
 - Store type definitions are not provided.
 - Exact store locations are unavailable.
 
----
 
 ## Overall Dataset Understanding
 
-The three datasets work together to explain retail sales performance.
+The three datasets work together to help explain retail sales performance across stores and departments.
 
 ### Sales Dataset
 Explains:
 
-> **What happened?**
+> **What happened in terms of weekly sales performance**
 
 ### Features Dataset
 Explains:
 
-> **What may have influenced performance?**
+> **What may have influenced sales performance**
 
 ### Stores Dataset
 Explains:
 
-> **What type of store generated the results?**
+> **What type of store generated the results**
 
 Overall, this project aims to understand how:
 
