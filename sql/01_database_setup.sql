@@ -1,5 +1,5 @@
--- How a database is created
+-- Create project database for retail sales analysis
 CREATE DATABASE retail_analysis;
 
--- How to ensure the correct database is chosen
+-- Set retail_analysis as the active database
 USE retail_analysis;
