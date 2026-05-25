@@ -1,24 +1,22 @@
 ## Business Understanding
 
-The dataset represents a retail company operating **45 stores** across multiple locations and departments.
+This project is about a retail company that operates **45 stores** across different locations. Each store has multiple departments, representing different product areas or retail sections within the business.
 
-Management wants to understand the key factors that influence retail sales performance across stores and departments.
+Management wants to understand the key factors that influence **weekly sales performance** across stores and departments. Since stores differ in **type and size**, management wants to investigate whether store characteristics influence sales outcomes.
 
-The company runs **promotional markdowns during major holiday periods** to encourage customer spending. However, management wants to understand whether these promotions actually improve sales performance and justify the cost.
+The company runs **promotional markdown events during major holiday periods** such as the Super Bowl, Labor Day, Thanksgiving, and Christmas to encourage customer spending and improve sales performance. However, management wants to understand whether these promotional activities actually improve sales.
 
-This analysis is important because retail managers need to make informed decisions about:
+This analysis is important because retail managers need to make informed business decisions regarding:
 
-- Inventory allocation  
+- Store performance evaluation  
 - Promotion effectiveness  
-- Store performance  
-- Resource planning during high-demand periods
+- Inventory planning  
+- Resource allocation during high-demand periods  
 
-The dataset also includes **economic indicators** such as:
+The dataset also includes **economic indicators** that may influence customer spending behavior and overall sales performance, including:
 
 - Consumer Price Index (CPI)  
 - Unemployment  
 - Fuel prices  
 
-These factors may influence customer spending behavior and overall retail sales performance.
-
-The goal of this project is to transform retail sales data into meaningful business insights that help explain **what drives sales performance**.
+The goal of this project is to transform retail sales data into meaningful business insights and identify the key factors that drive stronger or weaker sales performance across stores and departments.
