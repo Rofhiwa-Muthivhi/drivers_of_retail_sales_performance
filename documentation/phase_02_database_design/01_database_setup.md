@@ -5,7 +5,7 @@ A relational database named `retail_analysis` was created in SQL Server Manageme
 The default `dbo` schema was used for simplicity and efficient project development.
 
 ## Database Created
-- Retail_Analysis
+- retail_analysis
 
 ## Actions Performed
 - Created the project database
