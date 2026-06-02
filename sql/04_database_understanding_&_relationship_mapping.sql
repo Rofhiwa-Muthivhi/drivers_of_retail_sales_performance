@@ -1,5 +1,5 @@
-/* This queries will output previews for tables we created and this will help us to understand
-   the database and the relationships between the tables */
+/* These queries output previews of the tables created and help
+   understand the database structure and relationships between tables. */
 
 -- ================================
 -- Stores Table previewing
@@ -31,7 +31,7 @@ SELECT TOP 10
        s.weekly_sales,
        f.temperature
 FROM sales s
-JOIN features f
+INNER JOIN features f
 ON s.store = f.store AND s.date = f.date;
 
 
@@ -44,5 +44,5 @@ SELECT TOP 10
        st.size,
        sa.weekly_sales
 FROM stores st
-JOIN sales sa
+INNER JOIN sales sa
 ON st.store = sa.store;
