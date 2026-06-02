@@ -1,4 +1,4 @@
-/* The queries below are used to profile the dataset
+/* These queries below are used to profile the dataset
    and identify potential data quality issues */
 
 -- MISSING VALUES
@@ -62,7 +62,7 @@
    -- DUPLICATES INVESTINGATION
 
    -- ============================================================
-   -- Cheking if store appears more than once in the stores table.
+   -- Checking if store appears more than once in the stores table.
    -- No duplicate stores found, aligns with table strucutre.
    -- ============================================================
    SELECT store,
@@ -74,7 +74,7 @@
 
    -- ===========================================
    -- Features table duplicates check.
-   -- No duplicates found in the featurse table.
+   -- No duplicates found in the features table.
    -- ===========================================
    SELECT store,
           date,
