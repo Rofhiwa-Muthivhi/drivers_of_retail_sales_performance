@@ -1,129 +1,82 @@
-# Data Cleaning Documentation
+# DATA CLEANING
 
 ## Overview
 
-This phase focused on preparing the dataset for accurate analysis by resolving data quality issues identified during profiling and early analysis.
+This phase focused on cleaning the dataset and fixing data quality issues before analysis.
 
-The cleaning process followed a structured approach:
+The cleaning process followed four steps:
 
-1. Validate the issue
-2. Test conversions safely
-3. Apply permanent cleaning
-4. Revalidate results
+1. Identify the issue
+2. Validate the issue
+3. Apply the cleaning
+4. Verify the results
 
----
 
-# 1. Date Datatype Cleaning
+# 1. DATE DATATYPE CLEANING
 
-## Issue Identified
+## Issue
 
-The `date` column in both the `sales` and `features` tables was stored as `VARCHAR` instead of `DATE`.
+The date columns in the sales and features tables were stored as VARCHAR instead of DATE.
 
-This prevented proper time-series analysis, including:
+This made date-based analysis difficult.
 
-- Monthly trend analysis
-- Yearly trend analysis
-- Date-based aggregations
+## Cleaning
 
-## Validation Performed
-
-`TRY_CONVERT()` was used to validate whether the values could safely convert to a date datatype.
-
-SQL Server style `103` was used because the dataset dates followed the `DD/MM/YYYY` format.
-
-Example:
-
-08/07/2011 → 2011-07-08
-
-## Cleaning Action
-
-The `date` columns were permanently converted from `VARCHAR` to `DATE`.
+* Validated the date format using TRY_CONVERT().
+* Used SQL Server style 103 because the dates were stored as DD/MM/YYYY.
+* Converted the date columns from VARCHAR to DATE.
 
 ## Outcome
 
-The dataset became ready for time-series analysis and date functions.
+The dataset is now ready for time-series and date-based analysis.
 
----
 
-# 2. Markdown Values Cleaning
+# 2. MARKDOWN CLEANING
 
-## Issue Identified
+## Issue
 
-The markdown columns (`markdown1` to `markdown5`) contained text values labeled `"NA"`.
+The markdown columns contained 'NA' values stored as text.
 
-Initial profiling showed a high number of `"NA"` entries across the markdown columns.
+## Assumption
 
-## Business Assumption
+* 'NA' represents no promotional markdown activity.
 
-`"NA"` values were interpreted as:
+## Cleaning
 
-> No promotional markdown activity
-
-rather than missing or corrupted data.
-
-## Validation Performed
-
-A count analysis was conducted to determine the volume of `"NA"` values in each markdown column.
-
-## Cleaning Action
-
-- `"NA"` values were replaced with `0`
-- Markdown columns were converted from `VARCHAR` to `FLOAT`
-
-Affected columns:
-
-- markdown1
-- markdown2
-- markdown3
-- markdown4
-- markdown5
+* Counted the number of 'NA' values.
+* Replaced 'NA' values with 0.
+* Converted markdown columns from VARCHAR to FLOAT.
 
 ## Outcome
 
-The markdown columns became suitable for:
+The markdown columns can now be used for calculations and analysis.
 
-- numerical analysis
-- aggregations
-- promotional effectiveness analysis
 
----
+# 3. WEEKLY SALES DATATYPE CLEANING
 
-# 3. Weekly Sales Datatype Cleaning
+## Issue
 
-## Issue Identified
+The weekly_sales column was stored as VARCHAR instead of a numeric datatype.
 
-During monthly sales trend analysis, aggregation using `SUM(weekly_sales)` failed.
+This prevented sales calculations and aggregations.
 
-The error indicated that the `weekly_sales` column was stored as `VARCHAR`.
+## Cleaning
 
-## Validation Performed
-
-`TRY_CAST()` was used to verify whether values could safely convert to numeric format.
-
-No unexpected conversion errors or NULL values were identified.
-
-## Cleaning Action
-
-The `weekly_sales` column was permanently converted from `VARCHAR` to `FLOAT`.
+* Checked that weekly_sales values could be converted safely.
+* Converted weekly_sales from VARCHAR to FLOAT.
 
 ## Outcome
 
-This cleaning step enabled:
+The weekly_sales column can now be used for aggregations, calculations, and trend analysis.
 
-- sales aggregation
-- sales trend analysis
-- numerical calculations
-- business performance reporting
 
----
-
-## Final Cleaning Summary
+# FINAL RESULT
 
 Completed cleaning tasks:
 
-- Converted `date` columns from `VARCHAR` to `DATE`
-- Replaced `"NA"` markdown values with `0`
-- Converted markdown columns to `FLOAT`
-- Converted `weekly_sales` to `FLOAT`
+* Converted date columns from VARCHAR to DATE.
+* Replaced 'NA' markdown values with 0.
+* Converted markdown columns to FLOAT.
+* Converted weekly_sales to FLOAT.
 
-The dataset is now analysis-ready.
+The dataset is now ready for analysis.
