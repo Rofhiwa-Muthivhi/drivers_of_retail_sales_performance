@@ -1,19 +1,23 @@
-`Join Validation`
+# JOIN VALIDATION
 
-`Objective:`
-Validate table relationships before analysis to ensure accurate joins between sales, stores, and features.
+## Objective
 
-`Checks Performed:`
+Validate that the sales, stores, and features tables join correctly before analysis.
 
-- Verified successful joins using INNER JOIN
-- Compared joined row counts with source sales data
-- Identified missing relationships using LEFT JOIN
+## Checks Performed
 
-`Results:`
+* Verified that sales records successfully join with stores and features.
+* Compared joined row counts with the original sales table.
+* Checked for missing matches using LEFT JOIN.
 
-- Sales rows: 421,570
-- Joined rows: 421,570
-- Missing matches: 0
+## Results
 
-`Conclusion:`
-All tables joined successfully with no missing relationships or duplicate inflation. The dataset was confirmed ready for business analysis.
+* Sales rows: 421,570
+* Joined rows: 421,570
+* Missing matches: 0
+
+## Outcome
+
+All tables joined successfully with no missing records or duplicate rows.
+
+The dataset is ready for analysis.
