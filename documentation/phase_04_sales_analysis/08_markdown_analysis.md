@@ -1,37 +1,62 @@
-## Markdown Promotion Impact on Sales Performance
+# Markdown Promotion Impact Analysis
 
-### Why I did this analysis
-For this analysis, I wanted to understand whether markdown promotions improved retail sales performance.
+## Objective
 
-The idea was to check if customers spent more when discounts or promotions were applied.
+The purpose of this analysis was to evaluate whether markdown promotions influenced retail sales performance and determine whether sales were higher during promotional periods.
 
-### What I checked first
-I checked the markdown columns (`markdown1` to `markdown5`) to understand the data and see whether there were any missing or unusual values.
 
-The columns contained promotion values, and some rows had `NULL` values where no markdown was applied.
+## Sales Performance by Promotion Status
 
-To handle this, I used `ISNULL()` to replace missing values with `0` so that the analysis could correctly identify whether a markdown was applied.
+### Analysis
 
-### How I approached the analysis
-I joined the `sales` table with the `features` table using `store` and `date`.
+Sales data was joined with promotional data from the features table using store and date. A promotion flag was created using the markdown fields (`markdown1` to `markdown5`).
 
-I then grouped sales into two categories:
+Sales records were grouped into two categories:
 
-- Markdown Applied
-- No Markdown
+* Markdown Applied
+* No Markdown
 
-If any markdown value was greater than `0`, it was classified as **Markdown Applied**.
+Average sales were then compared between the two groups.
 
-I calculated:
-- Average weekly sales
-- Transaction count
+### Findings
 
-### What I found
-The results showed that average sales were slightly higher during periods where markdown promotions were applied.
+* Periods with markdown promotions generated higher average sales.
+* Periods without markdown promotions recorded lower average sales.
+* Sales activity was present in both categories.
+* The difference in average sales was positive but relatively small.
 
-This suggests that promotions may have encouraged customers to spend more.
+### Business Insight
 
-### Conclusion
-Based on the analysis, markdown promotions appear to have had a positive effect on retail sales performance.
+The results suggest that markdown promotions may help improve sales performance. Customers appear to spend slightly more during promotional periods, indicating that discounts and special offers can encourage purchasing activity.
 
-However, the difference in sales was relatively small, meaning promotions may have helped sales but were not the only factor affecting customer spending.
+
+## Promotion Data Review
+
+### Analysis
+
+The markdown fields were reviewed to understand how promotional activity was recorded within the dataset.
+
+### Findings
+
+* Markdown values were stored as promotional amounts.
+* Some records contained `NULL` values where no promotion was applied.
+* `ISNULL()` was used to replace missing values with zero during the analysis.
+* This ensured that promotional and non-promotional periods could be identified correctly.
+
+### Business Insight
+
+Handling missing markdown values helped ensure that promotions were classified accurately, improving the reliability of the analysis.
+
+
+## Overall Conclusion
+
+The analysis showed differences in sales performance between promotional and non-promotional periods.
+
+### Key Findings
+
+* Markdown periods generated higher average sales than non-markdown periods.
+* The improvement in sales performance was relatively small.
+* Promotional activity appears to have a positive impact on customer spending.
+* Promotional data required minimal preparation before analysis.
+
+Overall, the findings suggest that markdown promotions can support sales growth, although promotions alone may not be the primary factor influencing customer purchasing behavior.
