@@ -1,78 +1,87 @@
 # Department Analysis
 
 ## Objective
-The purpose of this analysis was to evaluate department performance, identify top and bottom-performing departments, and investigate unusual sales behavior across product categories.
 
----
+The goal of this analysis was to evaluate department-level sales performance, identify the strongest and weakest performing departments, investigate negative sales activity, and rank departments based on their overall contribution to revenue.
 
-## 1. Top-Performing Departments
 
-### Analysis
-Departments were ranked based on total sales to identify the strongest revenue contributors.
-
-### Key Findings
-- **Department 92 generated the highest sales performance**
-- **Departments 95 and 38 also contributed significantly to revenue**
-- A small number of departments generated a large portion of total sales
-
-### Business Insight
-Sales performance appears concentrated among a limited number of departments, suggesting that a few product categories contribute disproportionately to overall business revenue.
-
----
-
-## 2. Bottom-Performing Departments
+## Top-Performing Departments
 
 ### Analysis
-Departments with the lowest sales performance were identified to understand weaker product categories.
 
-### Key Findings
-- Some departments generated extremely low sales
-- **Department 47 recorded negative sales**
-- Several departments contributed very little revenue overall
+Departments were grouped and ranked by total sales to identify the product categories contributing the most revenue to the business.
+
+### Findings
+
+* Department 92 generated the highest total sales.
+* Departments 95 and 38 were also among the strongest revenue contributors.
+* Sales performance was concentrated within a small number of departments.
 
 ### Business Insight
-Low-performing departments may indicate weak product demand, niche product categories, or operational inefficiencies requiring further review.
 
----
+The results indicate that a limited number of departments drive a significant portion of overall revenue. These departments should be prioritized when making decisions related to inventory planning, promotions, and resource allocation.
 
-## 3. Negative Sales Investigation
+
+## Bottom-Performing Departments
 
 ### Analysis
-Departments with negative sales transactions were investigated to determine whether unusual sales activity existed.
 
-### Key Findings
-- Negative sales transactions appeared across multiple departments
-- Negative values were generally small in magnitude
-- The pattern suggests retail operational behavior rather than major data quality issues
+Departments were ranked from lowest to highest total sales to identify underperforming product categories.
+
+### Findings
+
+* Several departments generated very low sales volumes.
+* Department 47 recorded negative total sales.
+* Revenue contribution varied significantly across departments.
 
 ### Business Insight
-Negative sales likely represent **customer returns, refunds, inventory corrections, or cancelled purchases**, which are common in retail operations.
 
----
+Low-performing departments may indicate weaker customer demand, limited product offerings, or operational inefficiencies. These departments may require further review to determine whether improvements or strategic adjustments are necessary.
 
-## 4. Department Ranking Analysis
+
+## Negative Sales Investigation
 
 ### Analysis
-Departments were ranked using a window function (`RANK()`) to benchmark performance across all product categories.
 
-### Key Findings
-- **Department 92 ranked as the strongest-performing department**
-- Department performance varied significantly across categories
-- Revenue contribution was unevenly distributed
+Departments with negative sales transactions were examined to understand the extent of returns, refunds, or inventory adjustments.
+
+### Findings
+
+* Negative sales transactions were recorded across multiple departments.
+* Most negative sales values were relatively small.
+* No department showed unusually large negative sales activity.
 
 ### Business Insight
-Department ranking provides a clearer understanding of which product categories drive business performance and where operational focus should be prioritized.
 
----
+The presence of negative sales is consistent with normal retail operations and is likely linked to returns, refunds, cancelled purchases, or inventory corrections. Based on the analysis, the negative values do not appear to indicate significant data quality issues.
+
+
+## Department Ranking Analysis
+
+### Analysis
+
+Departments were ranked using a window function to compare overall sales performance across all product categories.
+
+### Findings
+
+* Department 92 ranked as the highest-performing department.
+* A noticeable gap existed between the strongest and weakest departments.
+* Revenue contribution was unevenly distributed across the business.
+
+### Business Insight
+
+Department rankings provide a clear view of which product categories contribute the most to overall performance. This information can support decisions related to budgeting, inventory management, and sales strategy.
+
 
 ## Overall Conclusion
 
-The analysis revealed substantial variation in department performance across the retail business.
+The analysis revealed significant differences in sales performance across departments.
 
-### Major Findings
-- **Department 92 emerged as the strongest revenue contributor**
-- A small number of departments generated most of the sales revenue
-- Several departments recorded very low or negative sales
-- Negative sales activity appears to reflect normal retail processes such as returns and refunds
+### Key Findings
 
-Overall, department performance is uneven, highlighting opportunities to optimize product strategy, inventory planning, and operational decision-making.
+* Department 92 was the top-performing department based on total sales.
+* A small group of departments generated a large share of overall revenue.
+* Several departments contributed relatively little revenue.
+* Negative sales activity appears to be associated with normal retail processes such as returns and refunds.
+
+Overall, department performance is uneven across the business. Understanding which departments drive revenue and which departments underperform can help management make more informed decisions regarding inventory planning, product strategy, and operational priorities.
