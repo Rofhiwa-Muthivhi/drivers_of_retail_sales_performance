@@ -1,34 +1,60 @@
-## CPI Impact on Sales Performance
+# CPI Impact Analysis
 
-### Why I did this analysis
-For this analysis, I wanted to understand whether inflation had an effect on retail sales. Since CPI measures changes in prices over time, I wanted to see if higher inflation affected how customers spend.
+## Objective
 
-### What I checked first
-Before doing the analysis, I checked the CPI column to make sure the data was clean.
+The purpose of this analysis was to evaluate how retail sales performance varies across different CPI levels and determine whether inflation may influence customer spending behavior.
 
-I found an `'NA'` text value in the CPI column. Because of this, the column was imported as text (`varchar`) instead of numeric.
 
-To solve this, I used `TRY_CAST()` to convert the CPI values into numbers so that I could apply comparisons and group the data properly.
+## Sales Performance by CPI Category
 
-### How I approached the analysis
-I joined the `sales` table with the `features` table using `store` and `date` so I could compare weekly sales with CPI values.
+### Analysis
 
-I then grouped CPI into three categories:
+Sales data was joined with economic data from the features table using store and date. CPI values were grouped into three categories:
 
-- Low CPI
-- Moderate CPI
-- High CPI
+* Low CPI (< 160)
+* Moderate CPI (160–200)
+* High CPI (> 200)
 
-I used a `CASE` statement to create the categories and calculated:
-- Average sales
-- Number of transactions
+Average sales were then compared across the three groups.
 
-### What I found
-The results showed that average sales were highest during low CPI periods.
+### Findings
 
-When CPI increased, average sales became lower, which suggests that inflation may affect customer spending behaviour.
+* Low CPI periods generated the highest average sales.
+* Average sales declined as CPI levels increased.
+* High CPI periods recorded the lowest average sales.
+* Transaction activity was present across all CPI categories.
 
-This could mean that when prices increase, customers may spend less or become more careful with spending.
+### Business Insight
 
-### Conclusion
-Based on this analysis, CPI appears to have some influence on retail sales performance. However, this only shows a possible relationship and does not fully prove that inflation directly caused changes in sales.
+The results suggest that sales performance was strongest during periods of lower CPI levels. As CPI increased, average sales decreased, indicating that higher prices may influence customer spending patterns.
+
+
+## Data Quality Review
+
+### Analysis
+
+A review of the CPI field identified an invalid value (`NA`) which caused the column to be imported as text instead of a numeric data type.
+
+### Findings
+
+* The CPI column contained a non-numeric value.
+* `TRY_CAST()` was used to safely convert valid values into a numeric format.
+* This prevented conversion errors during the analysis.
+
+### Business Insight
+
+Identifying and resolving data quality issues helped ensure that the analysis was based on accurate and reliable data.
+
+
+## Overall Conclusion
+
+The analysis showed differences in sales performance across CPI categories.
+
+### Key Findings
+
+* Low CPI periods generated the highest average sales.
+* High CPI periods generated the lowest average sales.
+* Average sales declined as CPI levels increased.
+* A data quality issue in the CPI field was identified and successfully addressed.
+
+Overall, the findings suggest that inflation may influence retail sales performance. As CPI levels increased, average sales decreased, indicating that customers may become more cautious with spending when prices rise.
