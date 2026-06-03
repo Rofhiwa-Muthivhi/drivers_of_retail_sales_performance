@@ -13,7 +13,7 @@ SELECT
 FROM sales
 GROUP BY MONTH(date),
          DATENAME(MONTH, date)
-ORDER BY total_sales DESC;
+ORDER BY month_number;
 
 
 -- =====================================================================

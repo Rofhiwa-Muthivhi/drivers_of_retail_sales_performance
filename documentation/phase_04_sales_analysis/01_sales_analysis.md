@@ -3,7 +3,6 @@
 ## Objective
 The purpose of this analysis was to identify sales trends over time and understand seasonal business performance using monthly, yearly, and weekly sales data.
 
----
 
 ## 1. Monthly Sales Trends
 
@@ -11,16 +10,16 @@ The purpose of this analysis was to identify sales trends over time and understa
 Monthly sales were analyzed to determine which months generated the highest revenue.
 
 ### Key Findings
-- **July recorded the highest sales performance**
+- **July recorded the highest sales performance, followed by April and June.**
+- **January recorded the lowest sales performance.**
 - Sales varied across months, indicating **seasonal demand patterns**
 
 ### Business Insight
-Understanding high-performing months helps businesses improve:
+Understanding monthly performance will help the business improve:
 - Inventory planning
 - Staffing decisions
 - Promotional strategies
 
----
 
 ## 2. Yearly Sales Trends
 
