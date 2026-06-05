@@ -8,7 +8,7 @@
 SELECT TOP 10
        dept,
        ROUND(SUM(weekly_sales), 2) AS total_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY dept
 ORDER BY total_sales DESC;
 
@@ -21,7 +21,7 @@ ORDER BY total_sales DESC;
 SELECT TOP 10
        dept,
        ROUND(SUM(weekly_sales), 2) AS total_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY dept
 ORDER BY total_sales ASC;
 
@@ -35,7 +35,7 @@ SELECT
       dept,
       COUNT(*) AS negative_transactions,
       ROUND(SUM(weekly_sales), 2) AS total_negative_sales
-FROM sales
+FROM [dbo].[Sales]
 WHERE weekly_sales < 0
 GROUP BY dept
 ORDER BY total_negative_sales ASC;
@@ -53,6 +53,6 @@ SELECT
       RANK() OVER (
         ORDER BY SUM(weekly_sales) DESC
       ) AS department_rank
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY dept
 ORDER BY department_rank;
