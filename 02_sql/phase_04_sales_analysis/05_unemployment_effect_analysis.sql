@@ -5,7 +5,7 @@
 -- Unemployment column was imported as varchar.
 -- ===================================================
 SELECT DISTINCT unemployment
-FROM features
+FROM [dbo].[Features]
 ORDER BY unemployment;
 
 -- ===============================================================
