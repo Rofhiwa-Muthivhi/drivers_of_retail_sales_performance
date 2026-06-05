@@ -30,7 +30,7 @@ SELECT
       END AS fuel_price_category,
       ROUND(AVG(s.weekly_sales), 2) AS avg_sales,
       COUNT(*) AS transaction_count
-FROM dbo.Sales s
+FROM [dbo].[Sales] s
 INNER JOIN dbo.Features f
 ON s.store = f.store AND s.date = f.date
 GROUP BY
