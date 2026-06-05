@@ -8,3 +8,6 @@ Which stores generate the highest weekly sales?
 
 ### Dataset Produced
 Store_Sales_Performance.csv
+
+### Method
+I aggregated weekly sales by store using SUM(weekly_sales) and also ranked stores based on total sales.
