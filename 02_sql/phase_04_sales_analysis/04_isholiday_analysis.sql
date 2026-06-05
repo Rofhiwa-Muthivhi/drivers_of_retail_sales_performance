@@ -21,12 +21,27 @@ GROUP BY CASE
              ELSE 'Non-Holiday Week'
              END;
 
+-- ======================================================================================
+-- SALES TREND OVER TIME
+-- Are there clear sales patterns across time?
+-- Analyzes monthly sales performance across the dataset.
+-- Identifies trends, seasonal patterns, peaks, and declines in retail sales over time.
+-- Helps understand sales seasonality, future demand, and support planning decisions.
+-- ======================================================================================
+SELECT
+    YEAR(date) AS sales_year,
+    MONTH(date) AS sales_month,
+    ROUND(SUM(weekly_sales), 2) AS total_sales
+FROM [dbo].[Sales]
+GROUP BY YEAR(date),MONTH(date)
+ORDER BY sales_year,sales_month;
 
--- ========================================
+
+-- =======================================
 -- TOP HOLIDAYS SALES WEEK
 -- Measures weekly holiday performance.
 -- Identifies strongest seasonal periods.
--- ========================================
+-- =======================================
 SELECT
       date,
       ROUND(SUM(weekly_sales), 2) AS total_sales
