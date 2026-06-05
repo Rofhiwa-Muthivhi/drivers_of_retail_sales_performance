@@ -38,8 +38,8 @@ SELECT
       END AS markdown_status,
       ROUND(AVG(s.weekly_sales), 2) AS avg_sales,
       COUNT(*) AS transaction_count
-FROM dbo.Sales s
-INNER JOIN dbo.Features f
+FROM [dbo].[Sales] s
+INNER JOIN [dbo].[Features] f
 ON s.store = f.store AND s.date = f.date
 GROUP BY
         CASE
@@ -53,3 +53,20 @@ GROUP BY
         ELSE 'No Markdown'
         END
 ORDER BY avg_sales DESC;
+
+
+-- ======================================================================================================================
+-- Which markdown categories influence sales the most?
+-- Measures the average value of each markdown category and compares promotional activity across categories.
+-- Helps identify which markdown categories are most utilized and may have the greatest influence on sales performance.
+-- ======================================================================================================================
+SELECT
+    ROUND(AVG(markdown1), 2) AS avg_markdown1,
+    ROUND(AVG(markdown2), 2) AS avg_markdown2,
+    ROUND(AVG(markdown3), 2) AS avg_markdown3,
+    ROUND(AVG(markdown4), 2) AS avg_markdown4,
+    ROUND(AVG(markdown5), 2) AS avg_markdown5,
+    ROUND(AVG(weekly_sales), 2) AS avg_weekly_sales
+FROM [dbo].[Sales] s
+INNER JOIN features f
+ON s.store = f.store AND s.date = f.date;
