@@ -22,7 +22,7 @@ SELECT
       END AS unemployment_category,
       ROUND(AVG(s.weekly_sales), 2) AS avg_sales,
       COUNT(*) AS transaction_count
-FROM sales s
+FROM [dbo].[Sales] s
 INNER JOIN features f
 ON s.store = f.store AND s.date = f.date
 GROUP BY
