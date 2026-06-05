@@ -20,6 +20,20 @@ fuel_price_impact.csv
 ### SQL Source
 07_fuel_impact_analysis.sql
 
+## Question 10
+
+### Business Question
+Does inflation (CPI) influence retail sales performance?
+
+### Dataset Created
+cpi_impact.csv
+
+### SQL Source
+06_cpi_impact_analysis.sql
+
+
+
+
 
 
 
