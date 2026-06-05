@@ -37,11 +37,12 @@ The purpose of this step is to break a broad business problem into smaller analy
 8. Does unemployment influence retail sales performance?
 
 9. Do fuel prices influence retail sales performance?
+10. Does inflation(CPI) influence retail sales performance?
 
 
 ### Department Performance
 
-10. Which departments contribute most to total retail sales?
+11. Which departments contribute most to total retail sales?
 
 
 ## Why These Questions Matter
