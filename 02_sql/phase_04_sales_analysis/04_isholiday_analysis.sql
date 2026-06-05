@@ -15,7 +15,7 @@ SELECT
       COUNT(DISTINCT date) AS total_weeks,
       ROUND(SUM(weekly_sales), 2) AS total_sales,
       ROUND(AVG(weekly_sales), 2) AS avg_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY CASE
              WHEN isholiday = 'TRUE' THEN 'Holiday Week'
              ELSE 'Non-Holiday Week'
@@ -30,7 +30,7 @@ GROUP BY CASE
 SELECT
       date,
       ROUND(SUM(weekly_sales), 2) AS total_sales
-FROM sales
+FROM [dbo].[Sales]
 WHERE isholiday = 'TRUE'
 GROUP BY date
 ORDER BY total_sales DESC;

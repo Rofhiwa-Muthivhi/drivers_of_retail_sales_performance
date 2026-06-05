@@ -11,9 +11,9 @@ SELECT
       RANK() OVER (
         ORDER BY SUM(weekly_sales) DESC
       ) AS sales_rank
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY store
-ORDER BY sales_rank;
+ORDER BY total_sales DESC;
 
 
 -- =================================================================================================
@@ -28,7 +28,7 @@ SELECT TOP 10
        RANK() OVER (
         ORDER BY SUM(weekly_sales) ASC
        ) AS sales_rank
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY store
 ORDER BY total_sales ASC;
 
@@ -42,7 +42,7 @@ SELECT
       st.type AS store_type,
       ROUND(SUM(s.weekly_sales), 2) AS total_sales,
       COUNT(DISTINCT s.store) AS number_of_stores
-FROM sales s
+FROM [dbo].[Sales] s
 INNER JOIN stores st
 ON s.store = st.store
 GROUP BY st.type
@@ -65,7 +65,7 @@ SELECT
         SUM(s.weekly_sales) /
         COUNT(DISTINCT s.store), 2
       ) AS avg_sales_per_store
-FROM sales s
+FROM [dbo].[Sales] s
 INNER JOIN stores st
 ON s.store = st.store
 GROUP BY st.type
@@ -81,7 +81,7 @@ SELECT
       s.store,
       st.size,
       ROUND(SUM(s.weekly_sales), 2) AS total_sales
-FROM sales s
+FROM [dbo].[Sales] s
 INNER JOIN stores st
 ON s.store = st.store
 GROUP BY s.store, st.size
@@ -104,7 +104,7 @@ SELECT
       COUNT(DISTINCT s.store) AS number_of_stores,
       ROUND(SUM(s.weekly_sales), 2) AS total_sales,
       ROUND(SUM(s.weekly_sales) /COUNT(DISTINCT s.store), 2) AS avg_sales_per_store
-FROM sales s
+FROM [dbo].[Sales] s
 INNER JOIN stores st
 ON s.store = st.store
 GROUP BY
