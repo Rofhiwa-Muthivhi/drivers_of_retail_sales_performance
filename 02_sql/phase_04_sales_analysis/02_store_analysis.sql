@@ -1,12 +1,12 @@
 -- STORE PERFORMANCE 
 
 -- =========================================================
--- RANKING STORES
+-- RANKING STORES BY PERFORMANCE
 -- Identifies top performing and underperforming stores.
 -- Helps with operational and investment decisions.
 -- =========================================================
 SELECT
-      store,
+      store AS store,
       ROUND(SUM(weekly_sales), 2) AS total_sales,
       RANK() OVER (
         ORDER BY SUM(weekly_sales) DESC
