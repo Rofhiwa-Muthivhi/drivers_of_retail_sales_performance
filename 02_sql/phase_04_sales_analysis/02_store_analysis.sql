@@ -78,8 +78,8 @@ ORDER BY avg_sales_per_store DESC;
 -- Identifies relationship between store size and revenue
 -- ============================================================
 SELECT
-      s.store,
-      st.size,
+      s.store AS store,
+      st.size AS store_size,
       ROUND(SUM(s.weekly_sales), 2) AS total_sales
 FROM [dbo].[Sales] s
 INNER JOIN stores st
