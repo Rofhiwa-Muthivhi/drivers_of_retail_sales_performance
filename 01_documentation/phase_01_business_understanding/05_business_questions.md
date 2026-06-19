@@ -11,7 +11,7 @@ The purpose of this step is to break a broad business problem into smaller analy
 
 ### Store Characteristics
 
-1. Which stores generate the highest weekly sales?
+1. Which store generates the highest total weekly sales revenue?
 
 2. Do larger stores generate higher weekly sales?
 
