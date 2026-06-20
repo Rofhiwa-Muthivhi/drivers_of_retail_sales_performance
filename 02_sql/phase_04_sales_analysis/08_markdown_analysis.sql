@@ -57,16 +57,48 @@ ORDER BY avg_sales DESC;
 
 -- ======================================================================================================================
 -- Which markdown categories influence sales the most?
--- Measures the average value of each markdown category and compares promotional activity across categories.
 -- Helps identify which markdown categories are most utilized and may have the greatest influence on sales performance.
 -- ======================================================================================================================
-SELECT
-    ROUND(AVG(markdown1), 2) AS avg_markdown1,
-    ROUND(AVG(markdown2), 2) AS avg_markdown2,
-    ROUND(AVG(markdown3), 2) AS avg_markdown3,
-    ROUND(AVG(markdown4), 2) AS avg_markdown4,
-    ROUND(AVG(markdown5), 2) AS avg_markdown5,
-    ROUND(AVG(weekly_sales), 2) AS avg_weekly_sales
+SELECT 'Markdown1' AS markdown_category,
+        ROUND(AVG(weekly_sales),2) AS avg_weekly_sales
 FROM [dbo].[Sales] s
-INNER JOIN features f
-ON s.store = f.store AND s.date = f.date;
+JOIN features f
+ON s.store = f.store AND s.date = f.date
+WHERE markdown1 > 0
+
+UNION ALL
+
+SELECT 'Markdown2',
+        ROUND(AVG(weekly_sales),2)
+FROM [dbo].[Sales] s
+JOIN features f
+ON s.store = f.store AND s.date = f.date
+WHERE markdown2 > 0
+
+UNION ALL
+
+SELECT 'Markdown3',
+       ROUND(AVG(weekly_sales),2)
+FROM sales s
+JOIN features f
+ON s.store = f.store AND s.date = f.date
+WHERE markdown3 > 0
+
+UNION ALL
+
+SELECT 'Markdown4',
+       ROUND(AVG(weekly_sales),2)
+FROM [dbo].[Sales] s
+JOIN features f
+ON s.store = f.store AND s.date = f.date
+WHERE markdown4 > 0
+
+UNION ALL
+
+SELECT 'Markdown5',
+       ROUND(AVG(weekly_sales),2)
+FROM [dbo].[Sales] s
+JOIN features f
+ON s.store = f.store AND s.date = f.date
+WHERE markdown5 > 0
+ORDER BY 2 DESC;
