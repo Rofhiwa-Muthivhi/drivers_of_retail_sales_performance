@@ -16,7 +16,7 @@ This analysis is important because retail managers need to make informed busines
 The dataset also includes **economic indicators** that may influence customer spending behavior and overall sales performance, including:
 
 - Consumer Price Index (CPI)  
-- Unemployment  
+- Unemployment 
 - Fuel prices  
 
 The goal of this project is to transform retail sales data into meaningful business insights and identify the key factors that drive stronger or weaker sales performance across stores and departments.

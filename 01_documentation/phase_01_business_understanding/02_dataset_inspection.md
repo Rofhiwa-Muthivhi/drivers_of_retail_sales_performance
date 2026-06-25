@@ -77,20 +77,11 @@ This dataset includes both **internal** and **external** factors that may influe
 - Do fuel prices influence sales activity?
 
 ### Key Business Understanding
-Fuel prices may influence customer spending behavior.
-
-When fuel prices increase, customers may spend more money on transport and reduce non-essential spending, which may affect retail sales performance.
-
-However, this project will **test whether a relationship exists**, rather than assuming fuel prices directly reduce sales.
+The Features dataset provides contextual information that may explain changes in weekly sales performance. It combines promotional activities, holiday periods, and selected economic indicators, allowing the project to investigate whether these factors are associated with retail sales performance. Rather than assuming these factors directly influence sales, the analysis uses the available data to determine whether any meaningful relationships exist.
 
 ### Observations
-- MarkDown fields contain missing values.
-- Economic indicators are included.
-- Holiday periods are available for analysis.
-
-### Limitations
-- Exact regional mapping of economic indicators is unclear.
-- Economic indicators are attached to store/date observations without a detailed geographic explanation.
+- The MarkDown1–MarkDown5 columns contain missing values that will require cleaning before analysis.
+- Each record is linked to a specific store and date, allowing it to be joined with the Sales dataset for further analysis.
 
 
 ## 3. Stores Dataset
@@ -132,25 +123,17 @@ Store size appears to represent physical store size and may influence sales pote
 The three datasets work together to help explain retail sales performance across stores and departments.
 
 ### Sales Dataset
-Explains:
-
-> **What happened in terms of weekly sales performance**
+Explains: **What happened in terms of weekly sales performance**
 
 ### Features Dataset
-Explains:
-
-> **What may have influenced sales performance**
+Explains: **What may have influenced sales performance**
 
 ### Stores Dataset
-Explains:
-
-> **What type of store generated the results**
+Explains: **What type of store generated the results**
 
 Overall, this project aims to understand how:
-
 - Store characteristics  
 - Economic conditions  
 - Seasonal effects  
 - Promotional activities  
-
 may influence retail sales performance across stores and departments.
