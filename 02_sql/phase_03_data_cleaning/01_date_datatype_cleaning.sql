@@ -1,7 +1,7 @@
 -- DATE DATA TYPE CLEANING FOR SALES & FEATURES TABLE
 
 -- =====================================================================
--- Converting date columns form varchar to date datatype.
+-- Converting date columns from varchar to date datatype.
 -- This will enable proper time series analysis
 -- Adopted the 103 SQL server format for date interpretation dd/mm/yyyy
 -- =====================================================================
