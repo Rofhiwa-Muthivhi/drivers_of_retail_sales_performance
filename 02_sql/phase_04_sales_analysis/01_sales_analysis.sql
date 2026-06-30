@@ -60,13 +60,13 @@ ORDER BY week_number;
 
 -- ===================================================
 -- TOP PERFORMING WEEKS
--- Which weeks generate the highest average sales>
+-- Which weeks generate the highest average sales
 -- This identifies shopping behaviour.
--- This phelps with promotions and inventory planning.
+-- This helps with promotions and inventory planning.
 -- ===================================================
 SELECT TOP 10
        DATEPART(WEEK, date) AS week_number,
        ROUND(AVG(weekly_sales), 2) AS avg_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY DATEPART(WEEK, date)
 ORDER BY avg_sales DESC;
