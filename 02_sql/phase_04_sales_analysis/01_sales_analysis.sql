@@ -25,9 +25,9 @@ ORDER BY total_sales DESC;
 SELECT 
       YEAR(date) AS sales_year,
       ROUND(SUM(weekly_sales), 2) AS total_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY YEAR(date)
-ORDER BY sales_year;
+ORDER BY total_sales DESC;
 
 
 -- ======================================================================
