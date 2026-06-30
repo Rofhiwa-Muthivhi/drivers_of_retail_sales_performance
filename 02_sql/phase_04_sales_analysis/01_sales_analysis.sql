@@ -53,7 +53,7 @@ ORDER BY weeks_available DESC;
 SELECT 
       DATEPART(WEEK, date) AS week_number,
       ROUND(AVG(weekly_sales), 2) AS avg_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY DATEPART(WEEK, date)
 ORDER BY week_number;
 
