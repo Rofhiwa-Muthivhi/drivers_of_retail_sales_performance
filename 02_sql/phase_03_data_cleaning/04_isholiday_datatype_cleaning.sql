@@ -1,6 +1,6 @@
 -- ISHOLIDAY DATATYPE CLEANING.
 
--- Checking which datatype isholiday was imported as.
+-- Checking which datatype "isholiday" was imported as.
 SELECT column_name, data_type
 FROM information_schema.columns
 WHERE table_name = 'features'AND column_name = 'isholiday';
