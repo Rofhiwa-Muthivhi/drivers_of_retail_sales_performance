@@ -40,9 +40,9 @@ SELECT
       MIN(date) AS start_date,
       MAX(date) AS end_date,
       COUNT(DISTINCT date) AS weeks_available
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY YEAR(date)
-ORDER BY sales_year;
+ORDER BY weeks_available DESC;
 
 
 -- ================================================
