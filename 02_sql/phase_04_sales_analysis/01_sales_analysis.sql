@@ -4,16 +4,16 @@
 -- MONTHLY SALES TRENDS
 -- Which month generates the highest sales?
 -- Helps identify seasonal trends and peak revenue months.
--- This will help with inventory planning, staffing and promotons.
+-- This will help with inventory planning, staffing and promotions.
 -- ===================================================================
 SELECT 
       MONTH(date) AS month_number,
       DATENAME(MONTH, date) AS month_name,
       ROUND(SUM(weekly_sales), 2) AS total_sales
-FROM sales
+FROM [dbo].[Sales]
 GROUP BY MONTH(date),
          DATENAME(MONTH, date)
-ORDER BY month_number;
+ORDER BY total_sales DESC;
 
 
 -- =====================================================================
