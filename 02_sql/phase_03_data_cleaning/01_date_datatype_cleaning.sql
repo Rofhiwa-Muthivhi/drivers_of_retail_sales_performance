@@ -10,12 +10,12 @@
 SELECT TOP 10
        date AS original_date,
        TRY_CONVERT(DATE, date, 103) AS converted_date
-FROM sales;
+FROM [dbo].[Sales];
 
 SELECT TOP 10
        date AS original_date,
        TRY_CONVERT(DATE, date, 103) AS converted_date
-FROM features;
+FROM [dbo].[Features];
 
 
 -- Converting the values for both sales and features
