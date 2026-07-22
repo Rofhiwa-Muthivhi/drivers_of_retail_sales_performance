@@ -20,11 +20,11 @@ Rather than jumping straight into writing SQL queries, this project begins by un
 ##  **Business Methodology** 📊
 I have followed a structured business analysis approach inspired by McKinsey-style problem solving:
 
-#### 1) **Business Understanding** 🧠
+### 1) `Business Understanding` 🧠
 This project explores the factors that drive weekly retail sales across 45 stores and multiple departments. I analyzed how store characteristics, promotions, seasonal demand, and economic conditions influence sales performance. Although the dataset is international, I related the insights to South African retailers such as Shoprite, Pick n Pay, Checkers, and Woolworths, where events like Black Friday, Easter, Christmas, and month-end shopping can significantly impact customer spending.
 
 
-#### 2) **Dataset Understanding**  🗂️
+### 2) `Dataset Understanding`  🗂️
 The project uses three datasets that collectively explain retail sales performance.
 
 | Dataset | Purpose |
@@ -33,7 +33,7 @@ The project uses three datasets that collectively explain retail sales performan
 |Features.csv |	Explains what may have influenced performance through economic and promotional factor |
 |Stores.csv |	Explains store-level characteristics such as type and size |
 
-###### **Key Variables**
+##### **Key Variables**
 * Store Size
 * Store Type
 * Holidays vs Non-Holidays
@@ -47,12 +47,12 @@ The project uses three datasets that collectively explain retail sales performan
 The dataset has a few limitations. Product categories, store locations, and department names are not provided, while store types are only labeled as A, B, and C without further explanation. Because of this, the analysis focuses on identifying sales trends and business patterns based on the available data rather than making assumptions about specific products or stores.
 
 
-#### 3) **Business Problem**  🎯
+### 3) `Business Problem`  🎯
 
 The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
 
 
-#### 4) **MECE Framework** 🌳
+### 4) `MECE Framework` 🌳
 The business problem: "What drives retail sales performance?" was broken into logical categories to create a structured analytical roadmap.
 
 <p align="center">
@@ -62,7 +62,7 @@ The business problem: "What drives retail sales performance?" was broken into lo
 </p>
 
 
-#### 5) **Business Questions** ❓
+### 5) `Business Questions` ❓
 After understanding the business problem and structuring it using the MECE framework, the next step was to identify the key business questions the analysis aims to answer.
 
 | Category | Business Question |
@@ -80,7 +80,7 @@ After understanding the business problem and structuring it using the MECE frame
 | Department Performance | Which departments contributed most to total sales? |
 
 
-#### 6) **Hypotheses** 💡
+### 6) `Hypotheses` 💡
 After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
 ##### **Example: Hypotheses 1: Larger stores may generate higher weekly sales.**
@@ -89,7 +89,7 @@ It is expected that larger stores may generate stronger sales performance becaus
 ➡️ More Hypotheses found in the `01_documentation` folder under subfolder `phase_01_business_understanding`.
 
 
-#### 7) **SQL Analysis** 💻
+### 7) `SQL Analysis` 💻
 
 ##### **Data Cleaning** 🧹
 
@@ -115,7 +115,7 @@ It is expected that larger stores may generate stronger sales performance becaus
 `02_sql` folder.
 
 
-#### 8) **Repository Structure**  📁
+### 8) `Repository Structure`  📁
 ```
 drivers_of_retail_sales_performance/
 │
@@ -130,7 +130,7 @@ drivers_of_retail_sales_performance/
 ```
 
 
-#### 9) **Tools Used** 🛠️
+### 9) `Tools Used` 🛠️
 
 <p align="center">
 
@@ -144,7 +144,7 @@ drivers_of_retail_sales_performance/
 </p>
 
 
-#### 10) **Business Insights** 📊
+### 10) `Business Insights` 📊
 
 !!! here i will write the most important finding after project presentation
 
@@ -162,11 +162,11 @@ drivers_of_retail_sales_performance/
 
 ---
 
-## 👤 Author
+##  Author 👤
 
 **Rofhiwa Muthivhi**
 
-Aspiring Data Engineer | Data Analyst
+Aspiring Analytics Engineer | Data Analyst
 
 ---
 
