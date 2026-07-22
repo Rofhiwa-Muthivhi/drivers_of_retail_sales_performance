@@ -31,7 +31,7 @@ ALTER COLUMN date DATE;
 
 ALTER TABLE features
 ALTER COLUMN date DATE;
-
+git 
 -- Verifying if the above queries where successful in execution
 SELECT column_name, data_type
 FROM information_schema.columns

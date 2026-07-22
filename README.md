@@ -1,200 +1,181 @@
-# Drivers of Retail Sales Performance: A Retail Data Analytics Project
 
-## 📌 Project Overview
-
-This project investigates the factors that may influence retail sales performance across **45 stores** and multiple departments.
-
-Using historical retail sales data, the analysis aims to understand how **store characteristics, economic conditions, seasonal effects, and promotional activities** may influence weekly sales performance.
-
-The goal is to transform structured numerical retail data into meaningful business insights that support better decision-making.
+<p align="center">
+  <img src="07_assets/banner.png" alt="Drivers of Retail Sales Performance Banner">
+</p>
 
 ---
 
-## 🎯 Business Problem
+## 📖 Project Overview
 
-Retail sales performance varies across stores and departments, making it difficult for management to understand what drives changes in sales performance.
+This project is based on a retail sales dataset that presents a common business challenge faced by small to large retail organizations.
 
-The business seeks to understand the key drivers of retail sales performance in order to improve:
+Sales performance varies across stores, departments, but the reasons behind those differences are not immediately clear.
 
-- Inventory planning  
-- Promotion effectiveness  
-- Operational decision-making  
-- Resource allocation  
-- Sales performance
+As a data analyst, my role is to investigate the factors that may be driving these changes in sales performance. Using SQL and a structured business analysis approach, I explore how store characteristics, promotional markdowns, seasonal events, and economic conditions may influence weekly retail sales.
+
+Rather than jumping straight into writing SQL queries, this project begins by understanding the business problem, defining the right analytical questions, and developing hypotheses before performing the analysis. The goal is to produce data-driven insights that can support better business decision-making.
 
 ---
 
-## ❓ Key Business Questions
+##  Business Methodology 
+I have followed a structured business analysis approach inspired by McKinsey-style problem solving:
 
-The project aims to answer the following business questions:
+## 1) Business Understanding 🧠
+This project explores the factors that drive weekly retail sales across 45 stores and multiple departments. I analyzed how store characteristics, promotions, seasonal demand, and economic conditions influence sales performance. Although the dataset is international, I related the insights to South African retailers such as Shoprite, Pick n Pay, Checkers, and Woolworths, where events like Black Friday, Easter, Christmas, and month-end shopping can significantly impact customer spending.
 
-| Category | Business Question |
-|----------|-------------------|
-| Store Characteristics | Which stores generate the highest weekly sales? |
-| Store Characteristics | Do larger stores generate higher weekly sales? |
-| Store Characteristics | Does store type influence sales performance? |
-| Seasonal Effects | Do holiday weeks generate higher sales than non-holiday weeks? |
-| Seasonal Effects | Are there clear seasonal sales patterns over time? |
-| Promotions | Do promotional markdowns improve sales performance? |
-| Promotions | Which markdown categories influence sales the most? |
-| Economic Conditions | Does unemployment affect retail sales performance? |
-| Economic Conditions | Do fuel prices influence retail sales performance? |
-| Department Performance | Which departments contribute most to total retail sales? |
-
----
-
-## 🧠 Business Methodology
-
-This project follows a structured business analysis approach inspired by **McKinsey-style problem solving**.
-
-The analytical process follows:
-
-```text
-Business Understanding
-        ↓
-Dataset Understanding
-        ↓
-Problem Definition (5 W's)
-        ↓
-MECE Problem Structuring
-        ↓
-Business Questions
-        ↓
-Hypothesis Development
-        ↓
-SQL Analysis
-```
-
-To avoid random analysis, the problem was structured using the **MECE Framework (Mutually Exclusive, Collectively Exhaustive)**.
-
-The main drivers investigated include:
-
-- Store Characteristics  
-- Economic Conditions  
-- Seasonal Effects  
-- Promotions  
-- Department Performance
-
----
-
-## 🌳 MECE Framework
-
-The business problem:
-
-> **"What drives retail sales performance?"**
-
-was broken into logical categories to create a structured analytical roadmap.
-
-![MECE Framework](visuals/mece_framework.png)
-
----
-
-## 🗂️ Dataset Overview
-
+## 2) Dataset Understanding  🗂️
 The project uses three datasets that collectively explain retail sales performance.
 
 | Dataset | Purpose |
-|----------|----------|
-| `sales.csv` | Explains **what happened** in terms of weekly sales performance |
-| `features.csv` | Explains **what may have influenced performance** through economic and promotional factors |
-| `stores.csv` | Explains **store-level characteristics** such as type and size |
+|-----------|-------------------|
+| Sales.csv | Explains what happened in terms of weekly sales performance |
+|Features.csv |	Explains what may have influenced performance through economic and promotional factor |
+|stores.csv |	Explains store-level characteristics such as type and size |
 
-### Key Variables
-- Weekly Sales
-- Store Size
-- Store Type
-- CPI (Consumer Price Index)
-- Unemployment
-- Fuel Price
-- Promotional Markdowns
-- Holiday Indicators
+##### Key Variables
+* Store Size
+* Store Type
+* Holiday Indicators
+* Promotional Markdowns
+* Unemployment
+* CPI (Consumer Price Index)
+* Fuel Price
+* Departments
 
----
+##### Dataset Limitations
+The dataset has a few limitations. Product categories, store locations, and department names are not provided, while store types are only labeled as A, B, and C without further explanation. Because of this, the analysis focuses on identifying sales trends and business patterns based on the available data rather than making assumptions about specific products or stores.
 
-## ⚠️ Dataset Limitations
 
-This project acknowledges several limitations in the dataset:
 
-- Product categories are not explicitly provided.
-- Departments are represented numerically and anonymized.
-- Exact store locations are not included.
-- Store type classifications (`A`, `B`, `C`) are not formally defined.
+## 3) Business Problem  🎯
 
-As a result, this analysis focuses on **numerical relationships and business patterns** rather than assumptions about specific products sold.
+The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
 
 ---
 
-## 🛠️ Tools Used
+## 4) MECE Framework 🌳
+The business problem: "What drives retail sales performance?" was broken into logical categories to create a structured analytical roadmap.
 
-| Tool | Purpose |
-|------|---------|
-| SQL (MySQL) | Data querying and analysis |
-| Excel | Initial dataset inspection |
-| Git & GitHub | Version control |
-| Markdown | Documentation |
-| Draw.io | MECE framework visualization |
+<p align="center">
+  <a href="07_assets/mece_framework.png">
+    <img src="07_assets/mece_framework.png" alt="MECE Framework" width="900">
+  </a>
+</p>
+
+## 5) Business Questions ❓
+After understanding the business problem and structuring it using the MECE framework, the next step was to identify the key business questions the analysis aims to answer.
+
+| Category | Business Question |
+|-----------|-------------------|
+| Store Characteristics | Which stores generate the highest weekly sales revenue? |
+| Store Characteristics | Do larger stores generate higher weekly sales? |
+| Store Characteristics | Does store type (`A`, `B`, `C`) influence sales performance? |
+| Seasonal Effects | Do holiday weeks generate higher sales than non-holiday weeks? |
+| Seasonal Effects | Are there clear sales patterns across time? |
+| Promotions | Do promotional markdowns improve weekly sales? |
+| Promotions | Which markdown categories appear to influence sales the most? |
+| Economic Conditions | Does unemployment influence retail sales performance? |
+| Economic Conditions | Do fuel prices influence retail sales performance? |
+| Economic Conditions | Does inflation(CPI) influence retail sales performance? |
+| Department Performance | Which departments contributed most to total sales? |
 
 ---
 
-## 📂 Repository Structure
+## 6) Hypotheses 💡
+After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
-```text
+##### Example: H1: Larger stores may generate higher weekly sales.
+It is expected that larger stores may generate stronger sales performance because they are likely to have more inventory capacity and serve more customers.
+##### NB!! 
+More Hypotheses found in the documentation folder.
+
+## 7) 💻 SQL Analysis
+
+### Data Cleaning 🧹
+
+<p align="center">
+<img src="07_assets/sql_data_cleaning.png" width="900">
+</p>
+
+
+### Exploratory Data Analysis 📈 
+
+<p align="center">
+<img src="07_assets/sql_eda.png" width="900">
+</p>
+
+
+### Business Queries 📊
+
+<p align="center">
+<img src="07_assets/sql_business_queries.png" width="900">
+</p>
+
+➡️ Full SQL scripts are available in the
+02_sql folder.
+
+
+---
+
+## 8) Repository Structure  📁
+
 drivers_of_retail_sales_performance/
 │
-├── README.md
-│
-├── datasets/
-│   ├── raw/
-│   └── processed/
-│
-├── documentation/
-│   ├── 01_business_understanding.md
-│   ├── 02_dataset_understanding.md
-│   ├── 03_mckinsey_problem_definition_framework.md
-│   ├── 04_mece_framework.md
-│   ├── 05_business_questions.md
-│   └── 06_hypotheses.md
-│
-├── sql/
-│
-├── visuals/
-│   └── mece_framework.png
-│
-└── insights/
-```
+├── 01_documentation/
+├── 02_sql/
+├── 03_datasets/
+├── 04_reporting_data/
+├── 05_visuals/
+├── 06_presentation/
+├── 07_assets
+└── README.md
+
+
+## 9) Tools Used 🛠️
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/SQL-0078D4?style=for-the-badge&logo=microsoftsqlserver&logoColor=white">
+<img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white">
+<img src="https://img.shields.io/badge/Draw.io-F08705?style=for-the-badge&logo=diagramsdotnet&logoColor=white">
+
+</p>
+
+
+## 10) 📊 Business Insights
+
+!!! here i will write the most important finding after project presentation
 
 ---
 
-## 📊 Data Source
+## 🧩 Skills Demonstrated
 
-| Item | Details |
-|------|----------|
-| Dataset | Retail Data Analytics |
-| Source | Kaggle |
-| Uploader | Manjeet Singh |
-| Dataset Link | https://www.kaggle.com/datasets/manjeetsingh/retaildataset |
-| License | CC0: Public Domain |
-
-This dataset is publicly available and used for **educational, portfolio, and analytical learning purposes**.
+- Business Problem Solving
+- Data Cleaning & Transformation
+- SQL Analysis
+- Exploratory Data Analysis
+- Hypothesis Testing
+- Business Insight Generation
+- Data Storytelling
 
 ---
 
-## 🚀 Project Status
+## 👤 Author
 
-### Completed
-- [x] Business Understanding  
-- [x] Dataset Understanding  
-- [x] Problem Definition (5 W's)  
-- [x] MECE Problem Structuring  
-- [x] Business Questions  
-- [x] Hypothesis Development  
-- [x] Documentation  
+**Rofhiwa Muthivhi**
 
-### Upcoming
-- [ ] Data Cleaning  
-- [ ] SQL Exploratory Data Analysis (EDA)  
-- [ ] Data Quality Checks  
-- [ ] Sales Driver Analysis  
-- [ ] Business Insights  
-- [ ] Recommendations
+Aspiring Data Engineer | Data Analyst
+
+---
+
+## 📄 License
+
+This project uses a CC0 Public Domain dataset from Kaggle for educational and portfolio purposes.
+Dataset Link	https://www.kaggle.com/datasets/manjeetsingh/retaildataset
+
+
+
 
