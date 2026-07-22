@@ -42,7 +42,7 @@ The purpose of this step is to break a broad business problem into smaller analy
 
 ### Department Performance
 
-11. Which departments contribute most to total retail sales?
+11. Which departments contributed most to total sales?
 
 
 ## Why These Questions Matter
