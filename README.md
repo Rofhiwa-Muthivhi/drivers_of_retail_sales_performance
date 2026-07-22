@@ -5,7 +5,7 @@
 
 ---
 
-## 📖 Project Overview
+##  **Project Overview** 📖
 
 This project is based on a retail sales dataset that presents a common business challenge faced by small to large retail organizations.
 
@@ -17,43 +17,42 @@ Rather than jumping straight into writing SQL queries, this project begins by un
 
 ---
 
-##  Business Methodology 
+##  **Business Methodology** 📊
 I have followed a structured business analysis approach inspired by McKinsey-style problem solving:
 
-## 1) Business Understanding 🧠
+#### 1) **Business Understanding** 🧠
 This project explores the factors that drive weekly retail sales across 45 stores and multiple departments. I analyzed how store characteristics, promotions, seasonal demand, and economic conditions influence sales performance. Although the dataset is international, I related the insights to South African retailers such as Shoprite, Pick n Pay, Checkers, and Woolworths, where events like Black Friday, Easter, Christmas, and month-end shopping can significantly impact customer spending.
 
-## 2) Dataset Understanding  🗂️
+
+#### 2) **Dataset Understanding**  🗂️
 The project uses three datasets that collectively explain retail sales performance.
 
 | Dataset | Purpose |
 |-----------|-------------------|
 | Sales.csv | Explains what happened in terms of weekly sales performance |
 |Features.csv |	Explains what may have influenced performance through economic and promotional factor |
-|stores.csv |	Explains store-level characteristics such as type and size |
+|Stores.csv |	Explains store-level characteristics such as type and size |
 
-##### Key Variables
+###### **Key Variables**
 * Store Size
 * Store Type
-* Holiday Indicators
+* Holidays vs Non-Holidays
 * Promotional Markdowns
 * Unemployment
 * CPI (Consumer Price Index)
 * Fuel Price
-* Departments
+* Department(Product Category)
 
-##### Dataset Limitations
+##### **Dataset Limitations**
 The dataset has a few limitations. Product categories, store locations, and department names are not provided, while store types are only labeled as A, B, and C without further explanation. Because of this, the analysis focuses on identifying sales trends and business patterns based on the available data rather than making assumptions about specific products or stores.
 
 
-
-## 3) Business Problem  🎯
+#### 3) **Business Problem**  🎯
 
 The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
 
----
 
-## 4) MECE Framework 🌳
+#### 4) **MECE Framework** 🌳
 The business problem: "What drives retail sales performance?" was broken into logical categories to create a structured analytical roadmap.
 
 <p align="center">
@@ -62,7 +61,8 @@ The business problem: "What drives retail sales performance?" was broken into lo
   </a>
 </p>
 
-## 5) Business Questions ❓
+
+#### 5) **Business Questions** ❓
 After understanding the business problem and structuring it using the MECE framework, the next step was to identify the key business questions the analysis aims to answer.
 
 | Category | Business Question |
@@ -79,46 +79,44 @@ After understanding the business problem and structuring it using the MECE frame
 | Economic Conditions | Does inflation(CPI) influence retail sales performance? |
 | Department Performance | Which departments contributed most to total sales? |
 
----
 
-## 6) Hypotheses 💡
+#### 6) **Hypotheses** 💡
 After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
-##### Example: H1: Larger stores may generate higher weekly sales.
+##### **Example: Hypotheses 1: Larger stores may generate higher weekly sales.**
 It is expected that larger stores may generate stronger sales performance because they are likely to have more inventory capacity and serve more customers.
-##### NB!! 
-More Hypotheses found in the documentation folder.
+ 
+➡️ More Hypotheses found in the `01_documentation` folder under subfolder `phase_01_business_understanding`.
 
-## 7) 💻 SQL Analysis
 
-### Data Cleaning 🧹
+#### 7) **SQL Analysis** 💻
+
+##### **Data Cleaning** 🧹
 
 <p align="center">
 <img src="07_assets/sql_data_cleaning.png" width="900">
 </p>
 
 
-### Exploratory Data Analysis 📈 
+##### **Exploratory Data Analysis** 📈 
 
 <p align="center">
 <img src="07_assets/sql_eda.png" width="900">
 </p>
 
 
-### Business Queries 📊
+##### **Business Queries** 📊
 
 <p align="center">
 <img src="07_assets/sql_business_queries.png" width="900">
 </p>
 
 ➡️ Full SQL scripts are available in the
-02_sql folder.
+`02_sql` folder.
 
 
----
-
-## 8) Repository Structure  📁
-
+#### 8) **Repository Structure**  📁
+```
 drivers_of_retail_sales_performance/
 │
 ├── 01_documentation/
@@ -129,9 +127,10 @@ drivers_of_retail_sales_performance/
 ├── 06_presentation/
 ├── 07_assets
 └── README.md
+```
 
 
-## 9) Tools Used 🛠️
+#### 9) **Tools Used** 🛠️
 
 <p align="center">
 
@@ -145,13 +144,13 @@ drivers_of_retail_sales_performance/
 </p>
 
 
-## 10) 📊 Business Insights
+#### 10) **Business Insights** 📊
 
 !!! here i will write the most important finding after project presentation
 
 ---
 
-## 🧩 Skills Demonstrated
+## **Skills Demonstrated** 🧩
 
 - Business Problem Solving
 - Data Cleaning & Transformation
@@ -171,7 +170,7 @@ Aspiring Data Engineer | Data Analyst
 
 ---
 
-## 📄 License
+## **License & Source** 📄
 
 This project uses a CC0 Public Domain dataset from Kaggle for educational and portfolio purposes.
 Dataset Link	https://www.kaggle.com/datasets/manjeetsingh/retaildataset
