@@ -26,27 +26,12 @@ This project analyses historical weekly sales data from 45 retail stores, each c
 Although the dataset is based on an international retailer, the business challenges closely resemble those faced by South African retailers such as Shoprite, Checkers, Pick n Pay, Woolworths, and SPAR. Local retail events such as Black Friday, Easter, Christmas, and month-end shopping periods similarly influence customer demand, purchasing behaviour, promotional strategies, and inventory requirements.
 
 
-### 2) `Dataset Understanding`  🗂️
-The project uses three datasets that collectively explain retail sales performance.
+### 2) `Dataset Understanding & Data Modelling`  🗂️ 
 
-| Dataset | Purpose |
-|-----------|-------------------|
-| Sales.csv | Explains what happened in terms of weekly sales performance |
-|Features.csv |	Explains what may have influenced performance through economic and promotional factor |
-|Stores.csv |	Explains store-level characteristics such as type and size |
+This project uses three relational datasets that work together to provide a complete view of the retailer's operations. The `Sales` dataset (421,570 records) captures weekly sales transactions, the `Features` dataset (8,190 records) contains promotional, seasonal, environmental, and economic factors, while the `Stores` dataset (45 records) provides information about each store. Before beginning the analysis, I explored each dataset to understand its structure, relationships, and level of detail, then organised them into a simple dimensional model to support efficient SQL analysis and business reporting.
 
-##### **Key Variables**
-* Store Size
-* Store Type
-* Holidays vs Non-Holidays
-* Promotional Markdowns
-* Unemployment
-* CPI (Consumer Price Index)
-* Fuel Price
-* Department(Product Category)
-
-##### **Dataset Limitations**
-The dataset has a few limitations. Product categories, store locations, and department names are not provided, while store types are only labeled as A, B, and C without further explanation. Because of this, the analysis focuses on identifying sales trends and business patterns based on the available data rather than making assumptions about specific products or stores.
+#### **Dataset Limitations**
+During the data understanding phase, I identified several limitations within the dataset. Product categories, store locations, and department names are not available, while store types are only identified as A, B, and C without additional context. Instead of making unsupported assumptions, I based the analysis on the available data to identify meaningful sales trends, relationships, and business patterns that could support informed decision-making.
 
 
 ### 3) `Business Problem`  🎯
