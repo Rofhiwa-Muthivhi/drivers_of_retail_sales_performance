@@ -56,10 +56,12 @@ The MECE diagram and the complete set of business questions can be found in the 
 ### `05_Hypotheses` 💡
 After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
-##### **Example: Hypotheses 1: Larger stores may generate higher weekly sales.**
-It is expected that larger stores may generate stronger sales performance because they are likely to have more inventory capacity and serve more customers.
+##### **Example: Hypotheses 1: Store Characteristics**
+**Questions: 1–4** 
+Store characteristics may influence weekly sales performance.
+It is expected that factors such as store size and store type may influence weekly sales performance, with some stores consistently outperforming others within the same store type.
  
-➡️ More Hypotheses found in the `01_documentation` folder under subfolder `phase_01_business_understanding`.
+➡️ More Hypotheses found in the `01_business_methodology_documentation` folder under `05_hypotheses.md`.
 
 
 ### 6) `SQL Analysis` 💻
