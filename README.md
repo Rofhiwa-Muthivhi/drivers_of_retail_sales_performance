@@ -21,6 +21,7 @@ Rather than jumping straight into writing SQL queries, this project begins by un
 To ensure the analysis remained structured and business-focused, I followed a systematic problem-solving approach inspired by McKinsey-style consulting.
 
 ### 1) `Business Context` 🧠
+
 This project analyses historical weekly sales data from 45 retail stores, each consisting of multiple departments located across different regions. Throughout the year, the retailer runs promotional markdown campaigns ahead of major holiday events, including the Super Bowl, Labour Day, Thanksgiving, and Christmas, to encourage customer demand and increase sales. Understanding how these promotions, together with store characteristics, seasonal demand, and economic factors, influence sales performance enables management to make more informed business decisions.
 
 Although the dataset is based on an international retailer, the business challenges closely resemble those faced by South African retailers such as Shoprite, Checkers, Pick n Pay, Woolworths, and SPAR. Local retail events such as Black Friday, Easter, Christmas, and month-end shopping periods similarly influence customer demand, purchasing behaviour, promotional strategies, and inventory requirements.
@@ -39,8 +40,11 @@ During the data understanding phase, I identified several limitations within the
 The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
 
 
-### 4) `MECE Framework` 🌳
-The business problem: "What drives retail sales performance?" was broken into logical categories to create a structured analytical roadmap.
+### 4) `Business Questions & Analytical Framework(MECE)` 🌳
+
+The MECE (Mutually Exclusive, Collectively Exhaustive) framework was used to organize the business problem into clear, non-overlapping sections. This created a logical flow for the analysis and ensured that all key areas influencing retail sales performance were covered.
+
+The MECE diagram and the complete set of business questions can be found in the project documentation.
 
 <p align="center">
   <a href="07_assets/mece_framework.png">
@@ -49,25 +53,7 @@ The business problem: "What drives retail sales performance?" was broken into lo
 </p>
 
 
-### 5) `Business Questions` ❓
-After understanding the business problem and structuring it using the MECE framework, the next step was to identify the key business questions the analysis aims to answer.
-
-| Category | Business Question |
-|-----------|-------------------|
-| Store Characteristics | Which stores generate the highest weekly sales revenue? |
-| Store Characteristics | Do larger stores generate higher weekly sales? |
-| Store Characteristics | Does store type (`A`, `B`, `C`) influence sales performance? |
-| Seasonal Effects | Do holiday weeks generate higher sales than non-holiday weeks? |
-| Seasonal Effects | Are there clear sales patterns across time? |
-| Promotions | Do promotional markdowns improve weekly sales? |
-| Promotions | Which markdown categories appear to influence sales the most? |
-| Economic Conditions | Does unemployment influence retail sales performance? |
-| Economic Conditions | Do fuel prices influence retail sales performance? |
-| Economic Conditions | Does inflation(CPI) influence retail sales performance? |
-| Department Performance | Which departments contributed most to total sales? |
-
-
-### 6) `Hypotheses` 💡
+### 5) `Hypotheses` 💡
 After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
 ##### **Example: Hypotheses 1: Larger stores may generate higher weekly sales.**
@@ -76,7 +62,7 @@ It is expected that larger stores may generate stronger sales performance becaus
 ➡️ More Hypotheses found in the `01_documentation` folder under subfolder `phase_01_business_understanding`.
 
 
-### 7) `SQL Analysis` 💻
+### 6) `SQL Analysis` 💻
 
 ##### **Data Cleaning** 🧹
 
@@ -102,7 +88,7 @@ It is expected that larger stores may generate stronger sales performance becaus
 `02_sql` folder.
 
 
-### 8) `Repository Structure`  📁
+### 7) `Repository Structure`  📁
 ```
 drivers_of_retail_sales_performance/
 │
@@ -117,7 +103,7 @@ drivers_of_retail_sales_performance/
 ```
 
 
-### 9) `Tools Used` 🛠️
+### 8) `Tools Used` 🛠️
 
 <p align="center">
 
@@ -131,7 +117,7 @@ drivers_of_retail_sales_performance/
 </p>
 
 
-### 10) `Business Insights` 📊
+### 9) `Business Insights` 📊
 
 !!! here i will write the most important finding after project presentation
 
