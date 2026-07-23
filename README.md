@@ -34,7 +34,7 @@ This project uses three relational datasets that work together to provide a comp
 During the data understanding phase, I identified several limitations within the dataset. Product categories, store locations, and department names are not available, while store types are only identified as A, B, and C without additional context. Instead of making unsupported assumptions, I based the analysis on the available data to identify meaningful sales trends, relationships, and business patterns that could support informed decision-making.
 
 
-### 3) `Business Problem`  🎯
+### 3) `Business Problem Statement`  🎯
 
 The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
 
