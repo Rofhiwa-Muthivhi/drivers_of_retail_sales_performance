@@ -26,7 +26,7 @@ This project analyses historical weekly sales data from 45 retail stores, each c
 Although the dataset is based on an international retailer, the business challenges closely resemble those faced by South African retailers such as Shoprite, Checkers, Pick n Pay, Woolworths, and SPAR. Local retail events such as Black Friday, Easter, Christmas, and month-end shopping periods similarly influence customer demand, purchasing behaviour, promotional strategies, and inventory requirements.
 
 
-### 2) `Dataset Understanding & Data Modelling`  🗂️ 
+### 2) `Dataset Comprehension & Data Modelling`  🗂️ 
 
 This project uses three relational datasets that work together to provide a complete view of the retailer's operations. The `Sales` dataset (421,570 records) captures weekly sales transactions, the `Features` dataset (8,190 records) contains promotional, seasonal, environmental, and economic factors, while the `Stores` dataset (45 records) provides information about each store. Before beginning the analysis, I explored each dataset to understand its structure, relationships, and level of detail, then organised them into a simple dimensional model to support efficient SQL analysis and business reporting.
 
