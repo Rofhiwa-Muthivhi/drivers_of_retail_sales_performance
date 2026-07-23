@@ -17,17 +17,17 @@ Rather than jumping straight into writing SQL queries, this project begins by un
 
 ---
 
-##  **Business Methodology** 📊
+##  **01_Business Methodology** 📊
 To ensure the analysis remained structured and business-focused, I followed a systematic problem-solving approach inspired by McKinsey-style consulting.
 
-### 1) `Business Context` 🧠
+### `01_Business Context` 🧠
 
 This project analyses historical weekly sales data from 45 retail stores, each consisting of multiple departments located across different regions. Throughout the year, the retailer runs promotional markdown campaigns ahead of major holiday events, including the Super Bowl, Labour Day, Thanksgiving, and Christmas, to encourage customer demand and increase sales. Understanding how these promotions, together with store characteristics, seasonal demand, and economic factors, influence sales performance enables management to make more informed business decisions.
 
 Although the dataset is based on an international retailer, the business challenges closely resemble those faced by South African retailers such as Shoprite, Checkers, Pick n Pay, Woolworths, and SPAR. Local retail events such as Black Friday, Easter, Christmas, and month-end shopping periods similarly influence customer demand, purchasing behaviour, promotional strategies, and inventory requirements.
 
 
-### 2) `Dataset Comprehension & Data Modelling`  🗂️ 
+### `02_Dataset Comprehension & Data Modelling`  🗂️ 
 
 This project uses three relational datasets that work together to provide a complete view of the retailer's operations. The `Sales` dataset (421,570 records) captures weekly sales transactions, the `Features` dataset (8,190 records) contains promotional, seasonal, environmental, and economic factors, while the `Stores` dataset (45 records) provides information about each store. Before beginning the analysis, I explored each dataset to understand its structure, relationships, and level of detail, then organised them into a simple dimensional model to support efficient SQL analysis and business reporting.
 
@@ -35,12 +35,12 @@ This project uses three relational datasets that work together to provide a comp
 During the data understanding phase, I identified several limitations within the dataset. Product categories, store locations, and department names are not available, while store types are only identified as A, B, and C without additional context. Instead of making unsupported assumptions, I based the analysis on the available data to identify meaningful sales trends, relationships, and business patterns that could support informed decision-making.
 
 
-### 3) `Business Problem Statement`  🎯
+### `03_Business Problem Statement`  🎯
 
 The retailer wants to understand the key drivers of retail sales performance across stores and departments so that management can improve inventory planning, promotional effectiveness, operational decision-making, and overall sales performance.
 
 
-### 4) `Business Questions & Analytical Framework(MECE)` 🌳
+### `04_Business Questions & Analytical Framework(MECE)` 🌳
 
 The MECE (Mutually Exclusive, Collectively Exhaustive) framework was used to organize the business problem into clear, non-overlapping sections. This created a logical flow for the analysis and ensured that all key areas influencing retail sales performance were covered.
 
@@ -53,7 +53,7 @@ The MECE diagram and the complete set of business questions can be found in the 
 </p>
 
 
-### 5) `Hypotheses` 💡
+### `05_Hypotheses` 💡
 After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
 ##### **Example: Hypotheses 1: Larger stores may generate higher weekly sales.**
