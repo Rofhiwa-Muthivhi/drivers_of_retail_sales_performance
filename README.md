@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="07_assets/banner.png" alt="Drivers of Retail Sales Performance Banner">
+  <img src="04_assets/banner.png" alt="Drivers of Retail Sales Performance Banner">
 </p>
 
 ---
@@ -47,8 +47,8 @@ The MECE (Mutually Exclusive, Collectively Exhaustive) framework was used to org
 The MECE diagram and the complete set of business questions can be found in the project documentation.
 
 <p align="center">
-  <a href="07_assets/mece_framework.png">
-    <img src="07_assets/mece_framework.png" alt="MECE Framework" width="900">
+  <a href="04_assets/mece_framework.png">
+    <img src="04_assets/mece_framework.png" alt="MECE Framework" width="900">
   </a>
 </p>
 
