@@ -66,28 +66,7 @@ It is expected that factors such as store size and store type may influence week
 
 ### 6) `SQL Analysis` 💻
 
-##### **Data Cleaning** 🧹
-
-<p align="center">
-<img src="07_assets/sql_data_cleaning.png" width="900">
-</p>
-
-
-##### **Exploratory Data Analysis** 📈 
-
-<p align="center">
-<img src="07_assets/sql_eda.png" width="900">
-</p>
-
-
-##### **Business Queries** 📊
-
-<p align="center">
-<img src="07_assets/sql_business_queries.png" width="900">
-</p>
-
-➡️ Full SQL scripts are available in the
-`02_sql` folder.
+This section is organised into four stages: Exploratory Data Analysis (EDA), Database Design, Data Cleaning, and Business Queries. Each stage follows a logical workflow to ensure the data is properly prepared, analysed, and used to answer the business questions.
 
 
 ### 7) `Repository Structure`  📁
