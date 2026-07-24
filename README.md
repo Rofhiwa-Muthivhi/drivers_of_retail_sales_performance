@@ -66,7 +66,7 @@ It is expected that factors such as store size and store type may influence week
 
 ### 6) `SQL Analysis` 💻
 
-This section is organised into four stages: Exploratory Data Analysis (EDA), Database Design, Data Cleaning, and Business Queries. Each stage follows a logical workflow to ensure the data is properly prepared, analysed, and used to answer the business questions.
+This section is organised into four stages: `Exploratory Data Analysis (EDA)`, `Database Design`, `Data Cleaning`, and `Business Queries`. Each stage follows a logical workflow to ensure the data is properly prepared, analysed, and used to answer the business questions.
 
 
 ### 7) `Repository Structure`  📁
