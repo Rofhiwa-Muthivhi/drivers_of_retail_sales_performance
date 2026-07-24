@@ -98,7 +98,7 @@ drivers_of_retail_sales_performance/
 </p>
 
 
-### 9) `Business Insights` 📊
+### 9) `Business Insights And Reommendations` 📊
 
 !!! here i will write the most important finding after project presentation
 
