@@ -68,7 +68,7 @@ The MECE diagram and the complete set of business questions can be found in the 
 After defining the business problem and key questions, I developed hypotheses to guide the analysis. Each hypothesis was tested against the data to determine whether it was supported or rejected, helping uncover meaningful business insights.
 
 ##### **Example: Hypotheses 1: Store Characteristics**
-**Questions: 1–4** 
+Questions: 1–4
 Store characteristics may influence weekly sales performance.
 It is expected that factors such as store size and store type may influence weekly sales performance, with some stores consistently outperforming others within the same store type.
  
