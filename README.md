@@ -15,6 +15,17 @@ As a data analyst, my role is to investigate the factors that may be driving the
 
 Rather than jumping straight into writing SQL queries, this project begins by understanding the business problem, defining the right analytical questions, and developing hypotheses before performing the analysis. The goal is to produce data-driven insights that can support better business decision-making.
 
+###  `Repository Structure`  📁
+```
+drivers_of_retail_sales_performance/
+│
+├── 00_datasets/
+├── 01_business_methodology_documentation/
+├── 02_sql_analysis/
+├── 03_business_insights_&_recommendations/
+├── 04_assets
+└── README.md
+```
 ---
 
 ##  **01_Business Methodology** 📊
@@ -63,28 +74,21 @@ It is expected that factors such as store size and store type may influence week
  
 ➡️ More Hypotheses found in the `01_business_methodology_documentation` folder under `05_hypotheses.md`.
 
+---
 
-### 6) `SQL Analysis` 💻
+## **02_SQL Analysis** 💻
 
 This section is organised into four stages: `Exploratory Data Analysis (EDA)`, `Database Design`, `Data Cleaning`, and `Business Queries`. Each stage follows a logical workflow to ensure the data is properly prepared, analysed, and used to answer the business questions.
 
+---
 
-### 7) `Repository Structure`  📁
-```
-drivers_of_retail_sales_performance/
-│
-├── 01_documentation/
-├── 02_sql/
-├── 03_datasets/
-├── 04_reporting_data/
-├── 05_visuals/
-├── 06_presentation/
-├── 07_assets
-└── README.md
-```
+## **03_Business Insights And Reommendations** 📊
 
+!!! here i will write the most important finding after project presentation
 
-### 8) `Tools Used` 🛠️
+---
+
+## **Tools Used** 🛠️
 
 <p align="center">
 
@@ -96,11 +100,6 @@ drivers_of_retail_sales_performance/
 <img src="https://img.shields.io/badge/Draw.io-F08705?style=for-the-badge&logo=diagramsdotnet&logoColor=white">
 
 </p>
-
-
-### 9) `Business Insights And Reommendations` 📊
-
-!!! here i will write the most important finding after project presentation
 
 ---
 
@@ -116,7 +115,7 @@ drivers_of_retail_sales_performance/
 
 ---
 
-##  Author 👤
+##  **Author** 👤
 
 **Rofhiwa Muthivhi**
 
