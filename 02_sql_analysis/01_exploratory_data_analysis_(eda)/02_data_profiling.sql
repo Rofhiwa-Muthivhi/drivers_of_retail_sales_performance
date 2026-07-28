@@ -1,5 +1,6 @@
-/*-- Data Profiling examines the structure, distribution, and quality of each column
-     to understand the dataset and identify potential data quality issues before cleaning. */
+/* Data Profiling examines the structure, content, and distribution of each column 
+  to understand the dataset, summarise key characteristics, and identify potential
+  data quality issues before cleaning. */
 
 -- =================================================================================
 -- Sales Table
