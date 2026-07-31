@@ -97,7 +97,7 @@ SELECT MIN(Date) AS earliest_sale_date,
 From[retail_analysis].[dbo].[features];
 
 
-/* -- Fuel_Price: Calculate the minimum, maximum, and average fuel_price values.
+  /* -- Fuel_Price: Calculate the minimum, maximum, and average fuel_price values.
    -- Observation: Fuel_price is stored as VARCHAR.
    -- Statistics require a numeric data type and will be calculated after Data Cleaning.
 SELECT MIN(fuel_price) AS minimum_fuel_price, 
