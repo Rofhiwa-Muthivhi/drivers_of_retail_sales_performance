@@ -31,7 +31,7 @@
 -- 2)
 -- Invalid store IDs
 -- Purpose:
--- To verify that every store appearing in the sales and features tables also exist in the stores table.
+-- To verify that every store appearing in the sales table also exist in the stores table.
 -- Notes:
 -- s = sales table alias
 -- st = stores table alias
