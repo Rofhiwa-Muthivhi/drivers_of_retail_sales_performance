@@ -148,4 +148,28 @@ SELECT store,
 FROM [retail_analysis].[dbo].[features]
 WHERE TRY_CAST(fuel_price AS DECIMAL(10,2)) <= 0
       OR TRY_CAST(fuel_price AS DECIMAL(10,2)) IS NULL;
-        
+
+
+-- =====================================================================================================
+-- 7)
+-- Consumer Price Index(CPI) Validation
+-- Purpose:
+-- To identify unrealistic cpi values, ensuring that cpi data used for analysis is 
+-- valid and reliable.
+-- =====================================================================================================
+
+-- Review the minimum and maximum recorded CPI values.
+-- CPI column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT MIN(TRY_CAST(cpi AS DECIMAL(10,2))) AS minimum_cpi,
+       MAX(TRY_CAST(cpi AS DECIMAL(10,2))) AS maximum_cpi
+FROM [retail_analysis].[dbo].[features];
+
+
+-- Display records with invalid CPI values.
+-- CPI column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT store,
+       [date],
+       cpi
+FROM [retail_analysis].[dbo].[features]
+WHERE TRY_CAST(cpi AS DECIMAL(10,2)) <= 0
+      OR TRY_CAST(cpi AS DECIMAL(10,2)) IS NULL;
