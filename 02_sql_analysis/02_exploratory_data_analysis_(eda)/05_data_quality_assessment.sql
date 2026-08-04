@@ -55,4 +55,28 @@ WHERE st.store IS NULL;
 -- Result: No invalid store IDs found.
 
 
+-- =====================================================================================================
+-- 3)
+-- Negative Weekly Sales
+-- Purpose:
+-- To identify records with negative weekly sales values that may represent customer returns, refunds, 
+-- data entry errors, or other business events.
+-- =====================================================================================================
+
+-- Displays records with negative weekly sales values.
+SELECT store,
+       dept,
+       date,
+       weekly_sales
+FROM [retail_analysis].[dbo].[sales]
+WHERE TRY_CAST(weekly_sales AS DECIMAL(20,2)) < 0;
+
+
+-- Count the total number of negative weekly sales records.
+SELECT COUNT(*) AS negative_weekly_sales_records
+FROM [retail_analysis].[dbo].[sales]
+WHERE TRY_CAST(Weekly_Sales AS DECIMAL(20,2)) < 0;
+
+
+
         
