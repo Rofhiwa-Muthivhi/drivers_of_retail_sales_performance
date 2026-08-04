@@ -80,6 +80,24 @@ FROM [retail_analysis].[dbo].[sales]
 WHERE TRY_CAST(Weekly_Sales AS DECIMAL(20,2)) < 0;
 
 
+-- =====================================================================================================
+-- 4)
+-- Store Size Validation
+-- Purpose:
+-- To verify that all store size values are valid and greater than zero, ensuring each store has
+-- a meaningful physical size. 
+-- =====================================================================================================
+
+-- Display stores with invalid size values.
+SELECT store,
+       [type],
+       [size]
+FROM [retail_analysis].[dbo].[stores]
+WHERE TRY_CAST(Size AS INT) <= 0 OR TRY_CAST(Size AS INT) IS NULL;
+-- Result:
+-- No invalid store size values found.
+
+
 
 
 
