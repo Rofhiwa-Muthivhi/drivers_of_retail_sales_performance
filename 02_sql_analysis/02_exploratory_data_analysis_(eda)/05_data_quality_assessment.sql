@@ -31,12 +31,13 @@
 -- 2)
 -- Invalid store IDs
 -- Purpose:
--- To verify that every store appearing in the sales table also exist in the stores table.
+-- To verify that every store appearing in the sales and features tables also exist in the stores table.
 -- Notes:
 -- s = sales table alias
+-- f = features table alias
 -- st = stores table alias
 -- =====================================================================================================
-
+-- Sales vs Stores.
 SELECT DISTINCT s.store
 FROM [retail_analysis].[dbo].[sales] AS s
 LEFT JOIN [retail_analysis].[dbo].[stores] AS st
@@ -45,7 +46,13 @@ WHERE st.store IS NULL;
 -- Result: No invalid store IDs found.
 
 
-
+-- Features vs Stores.
+SELECT DISTINCT f.store
+FROM [retail_analysis].[dbo].[features] AS f
+LEFT JOIN [retail_analysis].[dbo].[stores] AS st
+ON f.store = st.store
+WHERE st.store IS NULL;
+-- Result: No invalid store IDs found.
 
 
         
