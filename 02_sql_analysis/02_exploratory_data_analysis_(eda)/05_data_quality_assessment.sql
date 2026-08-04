@@ -103,7 +103,7 @@ WHERE TRY_CAST(Size AS INT) <= 0 OR TRY_CAST(Size AS INT) IS NULL;
 -- 5)
 -- Temperature Range Validation
 -- Purpose:
--- To identify unrealistic temperatures VALUES, ensuring that weather data used for analysis is 
+-- To identify unrealistic temperatures values, ensuring that weather data used for analysis is 
 -- valid and reliable.
 -- =====================================================================================================
 
@@ -125,4 +125,27 @@ WHERE TRY_CAST(Temperature AS DECIMAL(10,2)) < -50
       OR TRY_CAST(Temperature AS DECIMAL(10,2)) IS NULL;
 
 
+-- =====================================================================================================
+-- 6)
+-- Fuel Price Validation
+-- Purpose:
+-- To identify unrealistic fuel values, ensuring that fuel price data used for analysis is 
+-- valid and reliable.
+-- =====================================================================================================
+
+-- Review the minimum and maximum recorded fuel prices.
+-- Fuel_Price column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT MIN(TRY_CAST(fuel_price AS DECIMAL(10,2))) AS minimum_fuel_price,
+       MAX(TRY_CAST(fuel_price AS DECIMAL(10,2))) AS maximum_fuel_price
+FROM [retail_analysis].[dbo].[features];
+
+
+-- Display records with invalid fuel price values.
+-- Fuel_Price column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT store,
+       [date],
+       fuel_price
+FROM [retail_analysis].[dbo].[features]
+WHERE TRY_CAST(fuel_price AS DECIMAL(10,2)) <= 0
+      OR TRY_CAST(fuel_price AS DECIMAL(10,2)) IS NULL;
         
