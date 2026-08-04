@@ -99,8 +99,30 @@ WHERE TRY_CAST(Size AS INT) <= 0 OR TRY_CAST(Size AS INT) IS NULL;
 -- No invalid store size values found.
 
 
+-- =====================================================================================================
+-- 5)
+-- Temperature Range Validation
+-- Purpose:
+-- To identify unrealistic temperatures VALUES, ensuring that weather data used for analysis is 
+-- valid and reliable.
+-- =====================================================================================================
+
+-- Review the minimum and maximum recorded temperatures.
+-- Temperature column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT MIN(TRY_CAST(temperature AS DECIMAL(10,2))) AS minimum_temperature,
+       MAX(TRY_CAST(temperature AS DECIMAL(10,2))) AS maximum_temperature
+FROM [retail_analysis].[dbo].[features];
 
 
+-- Display records with invalid temperature values.
+-- Temperature column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT store,
+       [Date],
+       Temperature
+FROM [retail_analysis].[dbo].[features]
+WHERE TRY_CAST(Temperature AS DECIMAL(10,2)) < -50
+      OR TRY_CAST(Temperature AS DECIMAL(10,2)) > 150
+      OR TRY_CAST(Temperature AS DECIMAL(10,2)) IS NULL;
 
 
         
