@@ -12,3 +12,4 @@ The purpose of this section is to assess the quality of the data and determine w
 |3. `Negative Weekly Sales`| Reviewed | Negative weekly sales values were identified in the Sales table. Although these records may appear unusual, they could represent normal business activities such as returns or refunds. Further investigation is required before making any changes to the data.|                    
 |4. `Store Size Validation`| Reviewed | All stores have valid size values greater than zero. No missing or invalid store size values were identified.|
 |5. `Temperature Range Validation`| Reviewed | Temperature values ranged from -7.29°F to 101.95°F, which falls within the expected validation range. No unrealistic or non-numeric temperature values were identified.|
+|6. `Fuel Price Validation`| Reviewed | Fuel prices ranged from 2.47 to 4.47, which falls within the expected validation range. No invalid or non-numeric fuel price values were identified.|
