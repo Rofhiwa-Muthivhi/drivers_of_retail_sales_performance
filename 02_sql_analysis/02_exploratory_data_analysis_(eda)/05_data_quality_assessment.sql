@@ -18,12 +18,13 @@
 -- 10) Referential Integrity
 -- ========================================================
 
--- ==============================================================================================
+-- ===============================================================================================
 -- 1) 
--- Missing Values:
--- This section was completed on the 02_exploratory_data_analysis section as "03_missing values" 
--- ==============================================================================================
-
+-- Missing Values
+-- Purpose:
+-- To verify that the Sales, Features, and Stores tables do not contain missing values:
+-- This section was completed on the 02_exploratory_data_analysis section as "03_missing values". 
+-- ===============================================================================================
 
 
 
