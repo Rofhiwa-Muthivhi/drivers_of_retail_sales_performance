@@ -18,8 +18,14 @@
 -- 10) Referential Integrity
 -- ========================================================
 
--- 1) Missing Values
-     -- Missing values was completed on the 02_exploratory_data_analysis section as "03_missing values" 
+-- ==============================================================================================
+-- 1) 
+-- Missing Values:
+-- This section was completed on the 02_exploratory_data_analysis section as "03_missing values" 
+-- ==============================================================================================
+
+
+
 
 
 
