@@ -89,6 +89,7 @@ WHERE TRY_CAST(Weekly_Sales AS DECIMAL(20,2)) < 0;
 -- =====================================================================================================
 
 -- Display stores with invalid size values.
+-- Size column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
 SELECT store,
        [type],
        [size]
