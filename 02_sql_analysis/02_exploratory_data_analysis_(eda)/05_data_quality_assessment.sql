@@ -110,8 +110,8 @@ WHERE TRY_CAST(Size AS INT) <= 0 OR TRY_CAST(Size AS INT) IS NULL;
 
 -- Review the minimum and maximum recorded temperatures.
 -- Temperature column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
-SELECT MIN(TRY_CAST(temperature AS DECIMAL(10,2))) AS minimum_temperature,
-       MAX(TRY_CAST(temperature AS DECIMAL(10,2))) AS maximum_temperature
+SELECT MIN(TRY_CAST(temperature AS FLOAT)) AS minimum_temperature,
+       MAX(TRY_CAST(temperature AS FLOAT)) AS maximum_temperature
 FROM [retail_analysis].[dbo].[features];
 
 
@@ -121,9 +121,9 @@ SELECT store,
        [Date],
        Temperature
 FROM [retail_analysis].[dbo].[features]
-WHERE TRY_CAST(Temperature AS DECIMAL(10,2)) < -50
-      OR TRY_CAST(Temperature AS DECIMAL(10,2)) > 150
-      OR TRY_CAST(Temperature AS DECIMAL(10,2)) IS NULL;
+WHERE TRY_CAST(Temperature AS FLOAT) < -50
+      OR TRY_CAST(Temperature AS FLOAT) > 150
+      OR TRY_CAST(Temperature AS FLOAT) IS NULL;
 
 
 -- =====================================================================================================
@@ -161,8 +161,8 @@ WHERE TRY_CAST(fuel_price AS DECIMAL(10,2)) <= 0
 
 -- Review the minimum and maximum recorded CPI values.
 -- CPI column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
-SELECT MIN(TRY_CAST(cpi AS DECIMAL(10,2))) AS minimum_cpi,
-       MAX(TRY_CAST(cpi AS DECIMAL(10,2))) AS maximum_cpi
+SELECT MIN(TRY_CAST(cpi AS FLOAT)) AS minimum_cpi,
+       MAX(TRY_CAST(cpi AS FLOAT)) AS maximum_cpi
 FROM [retail_analysis].[dbo].[features];
 
 
@@ -172,8 +172,8 @@ SELECT store,
        [date],
        cpi
 FROM [retail_analysis].[dbo].[features]
-WHERE TRY_CAST(cpi AS DECIMAL(10,2)) <= 0
-      OR TRY_CAST(cpi AS DECIMAL(10,2)) IS NULL;
+WHERE TRY_CAST(cpi AS FLOAT) <= 0
+      OR TRY_CAST(cpi AS FLOAT) IS NULL;
 
 
 -- =====================================================================================================
