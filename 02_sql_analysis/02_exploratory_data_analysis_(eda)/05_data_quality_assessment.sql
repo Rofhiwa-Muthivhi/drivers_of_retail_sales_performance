@@ -195,3 +195,23 @@ SELECT *
 FROM [retail_analysis].[dbo].[features]
 WHERE TRY_CAST(unemployment AS FLOAT) < 0
       OR TRY_CAST(unemployment AS FLOAT) > 100;
+
+
+-- =====================================================================================================
+-- 9)
+-- Holiday Flag Validation
+-- Purpose:
+-- To verify that the IsHoliday column contains only valid binary values,ensuring holiday 
+-- records are correctly represented for analysis.
+-- =====================================================================================================
+
+-- Review the distinct values stored in the isholiday column in both sales and features tables.
+
+-- Check the distinct holiday flag values in the Sales table..
+SELECT DISTINCT IsHoliday
+FROM [retail_analysis].[dbo].[sales];
+
+-- Check the distinct holiday flag values in the Features table.
+SELECT DISTINCT IsHoliday
+FROM [retail_analysis].[dbo].[features];
+
