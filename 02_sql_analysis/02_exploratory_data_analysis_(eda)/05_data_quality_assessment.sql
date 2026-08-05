@@ -173,3 +173,25 @@ SELECT store,
 FROM [retail_analysis].[dbo].[features]
 WHERE TRY_CAST(cpi AS DECIMAL(10,2)) <= 0
       OR TRY_CAST(cpi AS DECIMAL(10,2)) IS NULL;
+
+
+-- =====================================================================================================
+-- 8)
+-- Unemployment Validation
+-- Purpose:
+-- To identify unrealistic unemployment values, ensuring that unemployment data used for analysis is 
+-- valid and reliable.
+-- =====================================================================================================
+
+-- Review the minimum and maximum unemployment values.
+-- Unemployment column is imported as NVARCHAR. TRY_CAST() is used to safely convert values to numeric data type.
+SELECT MIN(TRY_CAST(unemployment AS FLOAT)) AS minimum_unemployment,
+       MAX(TRY_CAST(unemployment AS FLOAT)) AS maximum_unemployment
+FROM [retail_analysis].[dbo].[features];
+
+
+-- Check for unrealistic unemployment values, valid unemployment rates fall between 0% and 100%.
+SELECT *
+FROM [retail_analysis].[dbo].[features]
+WHERE TRY_CAST(unemployment AS FLOAT) < 0
+      OR TRY_CAST(unemployment AS FLOAT) > 100;
