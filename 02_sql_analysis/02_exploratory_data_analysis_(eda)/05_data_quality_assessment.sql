@@ -29,15 +29,16 @@
 
 -- =====================================================================================================
 -- 2)
--- Invalid store IDs
+-- Table relationship Validation
 -- Purpose:
--- To verify that every store appearing in the sales and features tables also exist in the stores table.
+-- To verify that the relationships between the Sales, Features, and Stores tables are complete and valid.
 -- Notes:
 -- s = sales table alias
 -- f = features table alias
 -- st = stores table alias
 -- =====================================================================================================
--- Sales vs Stores.
+
+-- Check that all store IDs in the Sales table exist in the Stores table.
 SELECT DISTINCT s.store
 FROM [retail_analysis].[dbo].[sales] AS s
 LEFT JOIN [retail_analysis].[dbo].[stores] AS st
@@ -46,7 +47,7 @@ WHERE st.store IS NULL;
 -- Result: No invalid store IDs found.
 
 
--- Features vs Stores.
+-- Check that all store IDs in the Features table exist in the Stores table.
 SELECT DISTINCT f.store
 FROM [retail_analysis].[dbo].[features] AS f
 LEFT JOIN [retail_analysis].[dbo].[stores] AS st
