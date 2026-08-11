@@ -24,3 +24,14 @@ within the retail sales datasets before building the analytical model.
 | **Measures** | `weekly_sales` | Records the amount of sales generated at the defined grain and can be aggregated for analysis |
 | **Table Type** | Fact table | The table records a business activity and contains a measurable business value |
 | **Proposed Table Name** | `fact_sales` | Follows the dimensional modelling naming convention |
+
+## Features
+
+| Modelling Element | Answer | Reason / Explanation |
+|---|---|---|
+| **Grain** | One row represents the features and conditions recorded for one store on one date | Each record describes the conditions associated with a specific store/date combination |
+| **Primary Key** | `store + date` (composite key) | The combination of store and date identifies the feature record for a specific store on a specific date |
+| **Descriptive Attributes** | `temperature`, `fuel_price`, `markdown1–markdown5`, `cpi`, `unemployment`, `isholiday` | These fields describe the environmental, economic, promotional, and holiday conditions associated with the store/date observation |
+| **Measures / Numeric Features** | `temperature`, `fuel_price`, `markdown1–markdown5`, `cpi`, `unemployment` | These are contextual numeric features rather than the primary sales outcome being measured |
+| **Table Type** | Fact table — periodic snapshot | The table records changing conditions for each store over time at the store/date grain |
+| **Proposed Table Name** | `fact_features` | Represents the store/date feature observations in the analytical model |
