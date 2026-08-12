@@ -35,3 +35,10 @@ within the retail sales datasets before building the analytical model.
 | **Measures / Numeric Features** | `temperature`, `fuel_price`, `markdown1–markdown5`, `cpi`, `unemployment` | These are contextual numeric features rather than the primary sales outcome being measured |
 | **Table Type** | Fact table — periodic snapshot | The table records changing conditions for each store over time at the store/date grain |
 | **Proposed Table Name** | `fact_features` | Represents the store/date feature observations in the analytical model |
+
+## Data Model
+The data model documents the structure and purpose of the three source tables used in the Drivers of Retail Sales Performance project: Stores, Features and Sales.
+
+The Stores table provides descriptive information about each store. Features contains weekly store-level indicators and environmental/economic factors. Sales contains weekly sales performance by department, store and date.
+
+The model identifies the primary and foreign keys and provides the foundation for defining relationships between the tables and creating the ERD.
