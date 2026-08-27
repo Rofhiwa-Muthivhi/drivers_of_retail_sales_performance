@@ -78,9 +78,9 @@ It is expected that factors such as store size and store type may influence week
 ---
 ## **02_Data_Modelling** 🗄️
 
-The data modelling phase was used to understand the **grain, keys, attributes, measures, and relationships** within the Stores, Features, and Sales datasets before building the analytical model.
+The data modelling phase was used to understand the `grain`, `keys`, `attributes`, `measures`, and `relationships` within the Stores, Features, and Sales datasets before building the analytical model.
 
-The three tables were assessed and classified as **dimension or fact tables**, with their proposed keys and relationships identified. This provided a clear structure for connecting store information, weekly store conditions, and sales performance for analysis and reporting.
+The three tables were assessed and classified as `dimension` or `fact tables`, with their proposed keys and relationships identified. This provided a clear structure for connecting store information, weekly store conditions, and sales performance for analysis and reporting.
 
 ---
 ## **02_SQL Analysis** 💻
