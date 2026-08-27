@@ -596,3 +596,295 @@ ORDER BY ORDINAL_POSITION;
 
 SELECT COUNT(*) AS total_features_rows
 FROM [retail_analysis].[dbo].[features];
+
+
+
+-- ============================================================
+-- SALES DATASET
+-- Columns: store, dept, date, weekly_sales, isholiday
+-- ============================================================
+
+
+-- ============================================================
+-- 1. Review the raw data
+-- ============================================================
+
+SELECT *
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- ============================================================
+-- 2. Check for duplicate sales records
+-- Expected result: 0 rows
+-- ============================================================
+
+SELECT store,
+       dept,
+       [date],
+       COUNT(*) AS record_count
+FROM [retail_analysis].[dbo].[sales]
+GROUP BY store, dept, date
+HAVING COUNT(*) > 1;
+
+
+-- ============================================================
+-- 3. Check for missing values
+-- Expected result: 0 missing values in all columns
+-- ============================================================
+
+SELECT
+      SUM(CASE WHEN store IS NULL THEN 1 ELSE 0 END) AS missing_store,
+      SUM(CASE WHEN dept IS NULL THEN 1 ELSE 0 END) AS missing_dept,
+      SUM(CASE WHEN date IS NULL THEN 1 ELSE 0 END) AS missing_date,
+      SUM(CASE WHEN weekly_sales IS NULL THEN 1 ELSE 0 END) AS missing_weekly_sales,
+      SUM(CASE WHEN isholiday IS NULL THEN 1 ELSE 0 END) AS missing_isholiday
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- ============================================================
+-- 4. Check current data types
+-- Result: columns are initially NVARCHAR
+-- ============================================================
+
+SELECT COLUMN_NAME,
+       DATA_TYPE
+FROM [retail_analysis].INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'sales' AND TABLE_SCHEMA = 'dbo';
+
+
+-- ============================================================
+-- 5. Validate store and department values
+-- Check whether store and dept can be converted to INT
+-- ============================================================
+
+SELECT *
+FROM [retail_analysis].[dbo].[sales]
+WHERE TRY_CAST(REPLACE(store, '"', '') AS INT) IS NULL OR TRY_CAST(dept AS INT) IS NULL;
+
+
+-- ============================================================
+-- 6. Check quotation marks in store and isholiday
+-- ============================================================
+
+SELECT TOP 10
+       store,
+       REPLACE(store, '"', '') AS cleaned_store,
+       isholiday,
+       REPLACE(isholiday, '"', '') AS cleaned_isholiday
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- ============================================================
+-- 7. Remove quotation marks from store and isholiday
+-- ============================================================
+
+UPDATE [retail_analysis].[dbo].[sales]
+SET
+store = REPLACE(store, '"', ''),
+isholiday = REPLACE(isholiday, '"', '');
+
+
+-- ============================================================
+-- 8. Verify quotation marks were removed
+-- Expected result: 0 rows
+-- ============================================================
+
+SELECT *
+FROM [retail_analysis].[dbo].[sales]
+WHERE store LIKE '%"%' OR isholiday LIKE '%"%';
+
+
+-- ============================================================
+-- 9. Validate date and weekly_sales values
+-- Date format: DD/MM/YYYY (style 103)
+-- Expected result: 0 rows
+-- ============================================================
+
+SELECT *
+FROM [retail_analysis].[dbo].[sales]
+WHERE TRY_CONVERT(DATE, [date], 103) IS NULL OR TRY_CAST(weekly_sales AS FLOAT) IS NULL;
+
+
+-- ============================================================
+-- 10. Validate isholiday values
+-- Expected result: only TRUE and FALSE
+-- ============================================================
+
+SELECT DISTINCT isholiday
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- ============================================================
+-- 11. Check weekly_sales decimal precision
+-- Expected result: 0 rows
+-- ============================================================
+
+SELECT weekly_sales
+FROM [retail_analysis].[dbo].[sales]
+WHERE TRY_CAST(weekly_sales AS DECIMAL(18,4)) * 100
+      <> FLOOR(TRY_CAST(weekly_sales AS DECIMAL(18,4)) * 100);
+
+
+-- ============================================================
+-- 12. Convert isholiday TRUE/FALSE to 1/0
+-- TRUE  = 1
+-- FALSE = 0
+-- ============================================================
+
+UPDATE [retail_analysis].[dbo].[sales]
+SET isholiday = CASE
+                    WHEN isholiday = 'TRUE' THEN '1'
+                    WHEN isholiday = 'FALSE' THEN '0'
+                END;
+
+-- Verify isholiday conversion
+SELECT DISTINCT isholiday
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- ============================================================
+-- 13. Standardize final data types
+-- store        -> INT
+-- dept         -> INT
+-- date         -> DATE
+-- weekly_sales -> DECIMAL(18,2)
+-- isholiday    -> BIT
+-- ============================================================
+
+ALTER TABLE [retail_analysis].[dbo].[sales]
+ALTER COLUMN store INT;
+
+ALTER TABLE [retail_analysis].[dbo].[sales]
+ALTER COLUMN dept INT;
+
+ALTER TABLE [retail_analysis].[dbo].[sales]
+ALTER COLUMN weekly_sales DECIMAL(18,2);
+
+ALTER TABLE [retail_analysis].[dbo].[sales]
+ALTER COLUMN isholiday BIT;
+
+
+-- Validate date conversion
+-- Date format: DD/MM/YYYY (style 103)
+
+SELECT [date],
+       TRY_CONVERT(DATE, [date], 103) AS converted_date
+FROM [retail_analysis].[dbo].[sales]
+WHERE TRY_CONVERT(DATE, [date], 103) IS NULL;
+
+-- Standardize date format
+-- Convert DD/MM/YYYY to YYYY-MM-DD
+
+UPDATE [retail_analysis].[dbo].[sales]
+SET [date] = CONVERT(VARCHAR(10), TRY_CONVERT(DATE, [date], 103), 23);
+
+-- Verify standardized date format
+-- Expected result: dates displayed as YYYY-MM-DD
+
+SELECT TOP 10 [date]
+FROM [retail_analysis].[dbo].[sales];
+
+ALTER TABLE [retail_analysis].[dbo].[sales]
+ALTER COLUMN [date] DATE;
+
+
+-- ============================================================
+-- 14. Validate final data types
+-- Expected result:
+-- store        = int
+-- dept         = int
+-- date         = date
+-- weekly_sales = decimal
+-- isholiday    = bit
+-- ============================================================
+
+SELECT COLUMN_NAME,
+       DATA_TYPE
+FROM [retail_analysis].INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'sales' AND TABLE_SCHEMA = 'dbo';
+
+
+-- ============================================================
+-- 15. Final Sales row count validation
+-- Expected result: 421,570 rows
+-- ============================================================
+
+SELECT COUNT(*) AS total_sales_rows
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- ============================================================
+-- 16. Final missing value check
+-- Expected result: 0 missing values in all columns
+-- ============================================================
+
+SELECT
+      SUM(CASE WHEN store IS NULL THEN 1 ELSE 0 END) AS missing_store,
+      SUM(CASE WHEN dept IS NULL THEN 1 ELSE 0 END) AS missing_dept,
+      SUM(CASE WHEN date IS NULL THEN 1 ELSE 0 END) AS missing_date,
+      SUM(CASE WHEN weekly_sales IS NULL THEN 1 ELSE 0 END) AS missing_weekly_sales,
+      SUM(CASE WHEN isholiday IS NULL THEN 1 ELSE 0 END) AS missing_isholiday
+FROM [retail_analysis].[dbo].[sales];
+
+
+-- Final duplicate check
+-- Expected result: 0 rows
+
+SELECT store,
+       dept,
+       date,
+       COUNT(*) AS record_count
+FROM [retail_analysis].[dbo].[sales]
+GROUP BY store, dept, date
+HAVING COUNT(*) > 1;
+
+-- Validate store and department values
+-- Expected result: 0 rows
+
+SELECT *
+FROM [retail_analysis].[dbo].[sales]
+WHERE store <= 0 OR dept <= 0;
+
+
+-- Validate isholiday values
+-- Expected result: only 0 and 1
+
+SELECT DISTINCT isholiday
+FROM [retail_analysis].[dbo].[sales]
+ORDER BY isholiday;
+
+
+-- Investigate negative weekly_sales
+
+SELECT COUNT(*) AS negative_sales_records,
+       MIN(weekly_sales) AS minimum_weekly_sales,
+       MAX(weekly_sales) AS maximum_weekly_sales
+FROM [retail_analysis].[dbo].[sales]
+WHERE weekly_sales < 0;
+
+
+-- Check zero weekly_sales values
+-- Result: 73 zero-sales records
+-- Zero values were retained as they may represent valid
+-- periods with no recorded sales.
+
+SELECT COUNT(*) AS zero_sales_records
+FROM [retail_analysis].[dbo].[sales]
+WHERE weekly_sales = 0;
+
+
+-- ============================================================
+-- 17. Final Sales data validation
+-- ============================================================
+
+SELECT
+    COUNT(*) AS total_rows,
+    COUNT(DISTINCT store) AS unique_stores,
+    COUNT(DISTINCT dept) AS unique_departments,
+    MIN([date]) AS earliest_date,
+    MAX([date]) AS latest_date,
+    MIN(weekly_sales) AS minimum_weekly_sales,
+    MAX(weekly_sales) AS maximum_weekly_sales,
+    SUM(CASE WHEN isholiday = 1 THEN 1 ELSE 0 END) AS holiday_records,
+    SUM(CASE WHEN isholiday = 0 THEN 1 ELSE 0 END) AS non_holiday_records
+FROM [retail_analysis].[dbo].[sales];
