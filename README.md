@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="04_assets/banner.png" alt="Drivers of Retail Sales Performance Banner">
+  <img src="05_assets/banner.png" alt="Drivers of Retail Sales Performance Banner">
 </p>
 
 ---
