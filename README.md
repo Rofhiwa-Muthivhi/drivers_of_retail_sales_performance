@@ -59,8 +59,8 @@ The MECE (Mutually Exclusive, Collectively Exhaustive) framework was used to org
 The MECE diagram and the complete set of business questions can be found in the project documentation.
 
 <p align="center">
-  <a href="04_assets/mece_framework.png">
-    <img src="04_assets/mece_framework.png" alt="MECE Framework" width="900">
+  <a href="05_assets/mece_framework.png">
+    <img src="05_assets/mece_framework.png" alt="MECE Framework" width="900">
   </a>
 </p>
 
