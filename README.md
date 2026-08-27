@@ -83,9 +83,9 @@ The data modelling phase was used to understand the `grain`, `keys`, `attributes
 The three tables were assessed and classified as `dimension` or `fact tables`, with their proposed keys and relationships identified. This provided a clear structure for connecting store information, weekly store conditions, and sales performance for analysis and reporting.
 
 ---
-## **02_SQL Analysis** 💻
+## **03_SQL Analysis** 💻
 
-This section is organised into four stages: `Exploratory Data Analysis (EDA)`, `Database Design`, `Data Cleaning`, and `Business Queries`. Each stage follows a logical workflow to ensure the data is properly prepared, analysed, and used to answer the business questions.
+This section is organised into four stages: `01_Database & Table Design`, `02_Exploratory Data Analysis (EDA)`, `03_Data Cleaning`, and `04_Business Analysis`. Each stage follows a logical workflow to ensure the data is properly prepared, analysed, and used to answer the business questions.
 
 ---
 
