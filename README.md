@@ -130,7 +130,7 @@ This section is organised into four stages: `01_Database & Table Design`, `02_Ex
 
 **Rofhiwa Muthivhi**
 
-Aspiring Analytics Engineer | Data Analyst
+Data Analyst
 
 ---
 
