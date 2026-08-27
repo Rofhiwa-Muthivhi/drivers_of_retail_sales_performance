@@ -21,9 +21,10 @@ drivers_of_retail_sales_performance/
 │
 ├── 00_datasets/
 ├── 01_business_methodology_documentation/
-├── 02_sql_analysis/
-├── 03_business_insights_&_recommendations/
-├── 04_assets
+├── 02_data_modelling/
+├── 03_sql_analysis/
+├── 04_business_insights and recommendations/
+├── 05_assets/
 └── README.md
 ```
 ---
