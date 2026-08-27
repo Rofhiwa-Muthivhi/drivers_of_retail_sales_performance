@@ -89,7 +89,7 @@ This section is organised into four stages: `01_Database & Table Design`, `02_Ex
 
 ---
 
-## **04_Business Insights And Reommendations** 📊
+## **04_Business Insights And Recommendations** 📊
 
 !!! here i will write the most important finding after project presentation
 
