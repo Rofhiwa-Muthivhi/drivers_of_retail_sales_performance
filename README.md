@@ -82,6 +82,10 @@ The data modelling phase was used to understand the `grain`, `keys`, `attributes
 
 The three tables were assessed and classified as `dimension` or `fact tables`, with their proposed keys and relationships identified. This provided a clear structure for connecting store information, weekly store conditions, and sales performance for analysis and reporting.
 
+<p align="center">
+  <img src="05_assets/erd.png" alt="Drivers of Retail Sales Performance ERD">
+</p>
+
 ---
 ## **03_SQL Analysis** 💻
 
