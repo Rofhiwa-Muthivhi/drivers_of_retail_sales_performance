@@ -16,3 +16,18 @@ I joined the Stores table with the Sales table using the store identifier. I the
 ### 3) How does weekly sales performance differ across store types (A, B, and C)?
 
 I joined the Stores table with the Sales table and grouped the results by store type. I calculated the average weekly sales for each type to compare the performance of Type A, B, and C stores.
+
+### 4) Which stores consistently outperform or underperform other stores of the same type?
+
+I compared each store's weekly sales with the average weekly sales of other stores within the same store type. I then calculated how often each store performed above its peer average.
+
+Stores were classified as:
+70% or more: Consistently Outperforming
+31%–69%: Mixed Performance
+30% or less: Consistently Underperforming
+
+Key Findings:
+The results show that stores within the same type can have very different performance levels. Several Type A and Type B stores consistently performed above their peers, while others consistently performed below them.
+For example, Type A Stores 4, 20, 13, 1 and 6 were above their peer average in 100% of the observed weeks. In contrast, several Type A stores, including 34, 32, 40, 8, 26 and 33, were above their peer average in 0% of weeks.
+For Type B, Stores 12, 23, 22 and 10 were above their peer average in 100% of weeks, while Stores 21, 45 and 7 consistently underperformed.
+

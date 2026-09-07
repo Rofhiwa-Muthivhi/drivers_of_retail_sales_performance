@@ -120,3 +120,8 @@ FROM store_performance
 
 ORDER BY store_type,
          percent_weeks_above_peer DESC;
+
+
+-- ===================================================================
+-- SEASONAL EFFECTS
+-- ===================================================================
