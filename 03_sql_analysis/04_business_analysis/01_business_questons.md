@@ -26,8 +26,15 @@ Stores were classified as:
 31%–69%: Mixed Performance
 30% or less: Consistently Underperforming
 
-Key Findings:
+`Key Findings:`
 The results show that stores within the same type can have very different performance levels. Several Type A and Type B stores consistently performed above their peers, while others consistently performed below them.
 For example, Type A Stores 4, 20, 13, 1 and 6 were above their peer average in 100% of the observed weeks. In contrast, several Type A stores, including 34, 32, 40, 8, 26 and 33, were above their peer average in 0% of weeks.
 For Type B, Stores 12, 23, 22 and 10 were above their peer average in 100% of weeks, while Stores 21, 45 and 7 consistently underperformed.
 
+
+### 5) Do holiday weeks generate higher weekly sales than non-holiday weeks?
+
+I combined the Sales and Features tables using store and date. I first calculated the total weekly sales for each store and then used the IsHoliday field to separate holiday weeks from non-holiday weeks. I then calculated the average weekly sales for both groups and compared the results.
+
+`Key Finding:`
+Holiday weeks generated average weekly sales of approximately 1,122,887.89, compared with 1,041,256.38 for non-holiday weeks. This means holiday weeks had approximately 7.84% higher average weekly sales.

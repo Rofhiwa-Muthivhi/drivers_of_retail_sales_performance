@@ -125,3 +125,43 @@ ORDER BY store_type,
 -- ===================================================================
 -- SEASONAL EFFECTS
 -- ===================================================================
+
+--5) Do holiday weeks generate higher weekly sales than non-holiday weeks?
+
+WITH store_weekly_sales AS (
+    SELECT B.store,
+           B.[date],
+           SUM(B.weekly_sales) AS total_weekly_sales
+    FROM [retail_analysis].[dbo].[sales] B
+    GROUP BY B.store,
+             B.[date]
+),
+
+holiday_sales AS (
+    SELECT C.isholiday,
+           AVG(A.total_weekly_sales) AS average_weekly_sales
+    FROM store_weekly_sales A
+    INNER JOIN [retail_analysis].[dbo].[features] C
+        ON A.store = C.store AND A.[date] = C.[date]
+    GROUP BY C.isholiday
+)
+
+SELECT MAX(CASE WHEN isholiday = 1 THEN average_weekly_sales END) AS holiday_average_sales,
+
+       MAX(CASE WHEN isholiday = 0 THEN average_weekly_sales END) AS non_holiday_average_sales,
+
+    CAST(
+        (
+            MAX(CASE WHEN isholiday = 1 THEN average_weekly_sales END)
+            -
+            MAX(CASE WHEN isholiday = 0 THEN average_weekly_sales END)
+        )
+        /
+        MAX(CASE WHEN isholiday = 0 THEN average_weekly_sales END) * 100 AS DECIMAL(5,2)
+        ) AS percentage_difference
+
+FROM holiday_sales;
+
+--6) How does weekly sales performance vary across months and years?
+--7) How does weekly temperature influence departmental sales performance?
+--8) Which departments are most sensitive to changes in weekly temperature?
