@@ -162,6 +162,29 @@ SELECT MAX(CASE WHEN isholiday = 1 THEN average_weekly_sales END) AS holiday_ave
 
 FROM holiday_sales;
 
+
 --6) How does weekly sales performance vary across months and years?
+
+WITH monthly_sales_performance AS
+(
+    SELECT YEAR([date]) AS sales_year,
+           MONTH([date]) AS sales_month,
+           DATENAME(MONTH, [date]) AS month_name,
+           AVG(weekly_sales) AS avg_weekly_sales
+    FROM [retail_analysis].[dbo].[sales]
+    GROUP BY YEAR([date]),
+             MONTH([date]),
+             DATENAME(MONTH, [date])
+)
+
+SELECT sales_year,
+       sales_month,
+       month_name,
+       avg_weekly_sales
+FROM monthly_sales_performance
+ORDER BY sales_year,
+         sales_month;
+
+
 --7) How does weekly temperature influence departmental sales performance?
 --8) Which departments are most sensitive to changes in weekly temperature?

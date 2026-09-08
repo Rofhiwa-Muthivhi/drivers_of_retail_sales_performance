@@ -38,3 +38,12 @@ I combined the Sales and Features tables using store and date. I first calculate
 
 `Key Finding:`
 Holiday weeks generated average weekly sales of approximately 1,122,887.89, compared with 1,041,256.38 for non-holiday weeks. This means holiday weeks had approximately 7.84% higher average weekly sales.
+
+
+### 6) How does weekly sales performance vary across months and years?
+
+I used the `sales` table and extracted the month and year from the `date` column. I then grouped the weekly sales by month and year and calculated the average weekly sales to compare how sales performance changes across different months and years.
+
+I used a CTE to first create the monthly and yearly sales performance, then used the main query to display the results in chronological order.
+
+This helps identify seasonal patterns and shows which months and years have stronger or weaker weekly sales performance.
