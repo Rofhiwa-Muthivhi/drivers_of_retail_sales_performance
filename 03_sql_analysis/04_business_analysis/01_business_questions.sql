@@ -126,65 +126,56 @@ ORDER BY store_type,
 -- SEASONAL EFFECTS
 -- ===================================================================
 
---5) Do holiday weeks generate higher weekly sales than non-holiday weeks?
+-- Question 5 logic
+WITH weekly_sales AS
+(
+    -- Logic:
+    -- First, I need to get the total sales for each store for each week.
+    -- The sales table has separate rows for different departments,
+    -- so I add those sales together to get one weekly sales figure per store.
 
-WITH store_weekly_sales AS (
-    SELECT B.store,
-           B.[date],
-           SUM(B.weekly_sales) AS total_weekly_sales
-    FROM [retail_analysis].[dbo].[sales] B
-    GROUP BY B.store,
-             B.[date]
+    SELECT
+        B.store,
+        B.[date],
+        SUM(B.weekly_sales) AS total_weekly_sales
+    FROM [retail_analysis].[dbo].[sales] AS B
+    GROUP BY
+        B.store,
+        B.[date]
 ),
 
-holiday_sales AS (
-    SELECT C.isholiday,
-           AVG(A.total_weekly_sales) AS average_weekly_sales
-    FROM store_weekly_sales A
-    INNER JOIN [retail_analysis].[dbo].[features] C
-        ON A.store = C.store AND A.[date] = C.[date]
-    GROUP BY C.isholiday
-)
-
-SELECT MAX(CASE WHEN isholiday = 1 THEN average_weekly_sales END) AS holiday_average_sales,
-
-       MAX(CASE WHEN isholiday = 0 THEN average_weekly_sales END) AS non_holiday_average_sales,
-
-    CAST(
-        (
-            MAX(CASE WHEN isholiday = 1 THEN average_weekly_sales END)
-            -
-            MAX(CASE WHEN isholiday = 0 THEN average_weekly_sales END)
-        )
-        /
-        MAX(CASE WHEN isholiday = 0 THEN average_weekly_sales END) * 100 AS DECIMAL(5,2)
-        ) AS percentage_difference
-
-FROM holiday_sales;
-
-
---6) How does weekly sales performance vary across months and years?
-
-WITH monthly_sales_performance AS
+weekly_sales_holiday AS
 (
-    SELECT YEAR([date]) AS sales_year,
-           MONTH([date]) AS sales_month,
-           DATENAME(MONTH, [date]) AS month_name,
-           AVG(weekly_sales) AS avg_weekly_sales
-    FROM [retail_analysis].[dbo].[sales]
-    GROUP BY YEAR([date]),
-             MONTH([date]),
-             DATENAME(MONTH, [date])
+    -- Logic:
+    -- Now I need to know whether each week's sales happened during
+    -- a holiday or a normal week.
+    -- I use the features table to bring in the IsHoliday information
+    -- for each store and date.
+
+    SELECT
+        B.store,
+        B.[date],
+        B.total_weekly_sales,
+        C.isholiday
+    FROM weekly_sales AS B
+    INNER JOIN features AS C
+    ON B.store = C.store AND B.[Date] = C.[Date]
 )
 
-SELECT sales_year,
-       sales_month,
-       month_name,
-       avg_weekly_sales
-FROM monthly_sales_performance
-ORDER BY sales_year,
-         sales_month;
 
+-- 5) Do holiday weeks generate higher weekly sales than non-holiday weeks?
+-- Logic:
+-- Now I have weekly sales and I know whether each week was a holiday
+-- or non-holiday.
+-- I separate the two groups and calculate their average weekly sales
+-- so I can compare their weekly performance.
 
---7) How does weekly temperature influence departmental sales performance?
---8) Which departments are most sensitive to changes in weekly temperature?
+SELECT
+     CASE
+        WHEN B.isholiday = 1 THEN 'Holiday'
+        ELSE 'Non-Holiday'
+    END AS week_type,
+    COUNT(*) AS number_of_weeks,
+    AVG(B.total_weekly_sales) AS average_weekly_sales
+FROM weekly_sales_holiday AS B
+GROUP BY B.isholiday;
