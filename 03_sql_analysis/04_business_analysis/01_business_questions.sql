@@ -126,45 +126,41 @@ ORDER BY store_type,
 -- SEASONAL EFFECTS
 -- ===================================================================
 
--- Question 5 logic
-WITH weekly_sales AS
-(
-    -- Logic:
+-- 5) Do holiday weeks generate higher weekly sales than non-holiday weeks?
+
+    -- Logic 1:
     -- First, I need to get the total sales for each store for each week.
     -- The sales table has separate rows for different departments,
     -- so I add those sales together to get one weekly sales figure per store.
 
-    SELECT
-        B.store,
-        B.[date],
-        SUM(B.weekly_sales) AS total_weekly_sales
+WITH weekly_sales AS
+(
+    SELECT B.store,
+           B.[date],
+           SUM(B.weekly_sales) AS total_weekly_sales
     FROM [retail_analysis].[dbo].[sales] AS B
-    GROUP BY
-        B.store,
-        B.[date]
+    GROUP BY B.store,
+             B.[date]
 ),
 
-weekly_sales_holiday AS
-(
-    -- Logic:
+ -- Logic:
     -- Now I need to know whether each week's sales happened during
     -- a holiday or a normal week.
     -- I use the features table to bring in the IsHoliday information
     -- for each store and date.
 
-    SELECT
-        B.store,
-        B.[date],
-        B.total_weekly_sales,
-        C.isholiday
+weekly_sales_holiday AS
+(
+    SELECT B.store,
+           B.[date],
+           B.total_weekly_sales,
+           C.isholiday
     FROM weekly_sales AS B
     INNER JOIN features AS C
     ON B.store = C.store AND B.[Date] = C.[Date]
 )
 
-
--- 5) Do holiday weeks generate higher weekly sales than non-holiday weeks?
--- Logic:
+-- Logic 2:
 -- Now I have weekly sales and I know whether each week was a holiday
 -- or non-holiday.
 -- I separate the two groups and calculate their average weekly sales
@@ -179,3 +175,52 @@ SELECT
     AVG(B.total_weekly_sales) AS average_weekly_sales
 FROM weekly_sales_holiday AS B
 GROUP BY B.isholiday;
+
+
+
+-- 6) How does weekly sales performance vary across months and years?
+
+WITH weekly_sales AS
+(
+    -- Logic 1:
+    -- I first get the total sales for each store for each week.
+    -- The sales table has separate rows for each department,
+    -- so I add them together to get one weekly sales figure per store.
+
+    SELECT B.store,
+           B.[date],
+           SUM(B.weekly_sales) AS total_weekly_sales
+    FROM [retail_analysis].[dbo].[sales] AS B
+    GROUP BY B.store,
+             B.[date]
+),
+
+weekly_sales_time AS
+(
+    -- Logic 2:
+    -- I then extract the year and month from the date.
+    -- This allows me to compare weekly sales performance
+    -- across different months and years.
+
+    SELECT B.store,
+           B.[date],
+           DATEPART(YEAR, B.[date]) AS sales_year,
+           DATEPART(MONTH, B.[date]) AS sales_month,
+           B.total_weekly_sales
+    FROM weekly_sales AS B
+)
+
+-- Main query:
+-- I group the weekly sales by year and month.
+-- I use the average to see the typical weekly sales performance
+-- for each month and compare the pattern across years.
+
+SELECT B.sales_year,
+       B.sales_month,
+       AVG(B.total_weekly_sales) AS average_weekly_sales
+FROM weekly_sales_time AS B
+GROUP BY B.sales_year,
+         B.sales_month
+ORDER BY B.sales_year,
+         B.sales_month;
+
