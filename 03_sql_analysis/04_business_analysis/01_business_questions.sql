@@ -292,3 +292,92 @@ GROUP BY B.dept,
 ORDER BY B.dept,
          B.weather_classification;
 
+
+-- 8) Which departments are most sensitive to changes in weekly temperature?
+
+-- Logic 1:
+-- Join sales and features using Store and Date.
+-- This allows us to see the weekly temperature together with
+-- the sales made by each department.
+
+WITH temperature_classification AS
+(
+    SELECT B.dept,
+           B.store,
+           B.[date],
+           B.weekly_sales,
+           C.temperature,
+
+        -- Logic 2:
+        -- Put the weekly temperature into three groups:
+        -- Cold, Moderate and Hot.
+        -- This will help us compare how each department behaves
+        -- under different temperature conditions.
+
+        CASE
+            WHEN C.temperature < 30 THEN 'Cold'
+            WHEN C.temperature BETWEEN 30 AND 60 THEN 'Moderate'
+            ELSE 'Hot'
+        END AS weather_classification
+    FROM [retail_analysis].[dbo].[sales] AS B
+    INNER JOIN [retail_analysis].[dbo].[features] AS C
+    ON B.store = C.store AND B.[date] = C.[date]
+),
+
+-- Logic 3:
+-- Calculate the average weekly sales for each department
+-- under each temperature group.
+
+department_temperature_sales AS
+(
+    SELECT dept,
+           weather_classification,
+           AVG(weekly_sales) AS average_weekly_sales
+    FROM temperature_classification
+    GROUP BY dept,
+             weather_classification
+),
+
+-- Logic 4:
+-- Put the Cold, Moderate and Hot average sales into
+-- separate columns so we can compare how each department
+-- behaves as the temperature changes.
+
+[sensitivity] AS
+(
+    SELECT
+        dept,
+
+        MAX(CASE
+                WHEN weather_classification = 'Cold'
+                THEN average_weekly_sales
+            END) AS cold_sales,
+
+        MAX(CASE
+                WHEN weather_classification = 'Moderate'
+                THEN average_weekly_sales
+            END) AS moderate_sales,
+
+        MAX(CASE
+                WHEN weather_classification = 'Hot'
+                THEN average_weekly_sales
+            END) AS hot_sales
+
+    FROM department_temperature_sales
+    GROUP BY dept
+)
+
+-- Main query:
+-- Show the average sales for each temperature group.
+-- The sales_change shows the difference between Hot and Cold.
+-- A larger change means the department's sales changed more
+-- between the two temperature conditions.
+
+SELECT dept,
+       CAST(cold_sales AS DECIMAL(10,2)) AS cold_sales,
+       CAST(moderate_sales AS DECIMAL(10,2)) AS moderate_sales,
+       CAST(hot_sales AS DECIMAL(10,2)) AS hot_sales,
+       CAST(hot_sales - cold_sales AS DECIMAL(10,2)) AS sales_change
+FROM [sensitivity]
+ORDER BY dept,
+         sales_change;
