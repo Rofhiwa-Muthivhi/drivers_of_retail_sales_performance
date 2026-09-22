@@ -224,3 +224,71 @@ GROUP BY B.sales_year,
 ORDER BY B.sales_year,
          B.sales_month;
 
+
+
+-- 7) How does weekly temperature influence departmental sales performance?
+
+-- Logic 1:
+-- First, I get the total weekly sales for each department.
+-- The sales table can have multiple rows for the same
+-- store, date and department, so I add those sales together.
+
+WITH departmental_sales AS
+(
+    SELECT B.store,
+           B.[date],
+           B.dept,
+           SUM(B.weekly_sales) AS total_weekly_sales
+    FROM [retail_analysis].[dbo].[sales] AS B
+    GROUP BY B.store,
+             B.[date],
+             B.dept
+),
+
+-- Logic 2:
+-- Now I bring in the temperature for each store and date.
+-- The temperature comes from the features table.
+
+departmental_temperature AS
+(
+    SELECT B.store,
+           B.[date],
+           B.dept,
+           B.total_weekly_sales,
+           C.temperature
+    FROM departmental_sales AS B
+    INNER JOIN [retail_analysis].[dbo].[features] AS C
+    ON B.store = C.store AND B.[date] = C.[date]
+),
+
+  -- Logic 3:
+  -- Now I classify each week's temperature into a temperature band.
+
+temperature_classification AS
+(
+    SELECT B.store,
+           B.[date],
+           B.dept,
+           B.total_weekly_sales,
+           B.temperature,
+        CASE
+            WHEN B.temperature < 30 THEN 'Cold'
+            WHEN B.temperature BETWEEN 30 AND 60 THEN 'Moderate'
+            ELSE 'Hot'
+        END AS weather_classification
+    FROM departmental_temperature AS B
+)
+
+-- MAIN QUERY:
+-- Now I compare the average weekly sales for each department
+-- across the different temperature bands.
+
+SELECT B.dept,
+       B.weather_classification,
+       CAST(AVG(B.total_weekly_sales) AS  DECIMAL(10,2)) AS average_weekly_sales
+FROM temperature_classification AS B
+GROUP BY B.dept,
+         B.weather_classification
+ORDER BY B.dept,
+         B.weather_classification;
+
