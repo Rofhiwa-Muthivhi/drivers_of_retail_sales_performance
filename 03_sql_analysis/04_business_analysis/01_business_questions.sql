@@ -381,3 +381,59 @@ SELECT dept,
 FROM [sensitivity]
 ORDER BY dept,
          sales_change;
+
+
+-- 9) Do markdown promotions improve weekly sales performance?
+
+-- Logic 1:
+-- First, I joined the sales and features tables using Store and Date
+-- so I can compare weekly sales with the markdown values for each store-week.
+
+-- Logic 2:
+-- Next, I classified each store-week as either Markdown Applied or No Markdown.
+-- If all five markdown fields are 0, there was no markdown.
+-- If at least one markdown field has a value, a markdown was applied.
+
+-- Logic 3:
+-- Then, I calculated the average weekly sales for each markdown classification
+-- so I can compare sales performance between weeks with and without markdowns.
+
+-- Logic 4:
+-- Finally, I used a subquery to group the classified store-weeks
+-- and calculate the average weekly sales for each classification.
+
+SELECT  M.[markdown_classification],
+        CAST(AVG(M.[weekly_sales]) AS DECIMAL(10,2)) AS [average_weekly_sales]
+FROM
+(
+    SELECT 
+        B.[store],
+        B.[date],
+        B.[weekly_sales],
+        C.[markdown1],
+        C.[markdown2],
+        C.[markdown3],
+        C.[markdown4],
+        C.[markdown5],
+
+        CASE
+            WHEN C.[markdown1] = 0
+             AND C.[markdown2] = 0
+             AND C.[markdown3] = 0
+             AND C.[markdown4] = 0
+             AND C.[markdown5] = 0
+                THEN 'No Markdown'
+            ELSE 'Markdown Applied'
+        END AS [markdown_classification]
+
+    FROM [retail_analysis].[dbo].[sales] AS B
+    INNER JOIN [retail_analysis].[dbo].[features] AS C
+    ON B.[store] = C.[store]  AND B.[date] = C.[date]
+) M
+
+GROUP BY M.[markdown_classification]
+ORDER BY M.[markdown_classification]
+
+
+
+      
